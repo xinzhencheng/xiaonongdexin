@@ -2,90 +2,161 @@
  * @Author: 安菲
  * @Date: 2019-11-26 10:16:18
  * @LastEditors: 安菲
- * @LastEditTime: 2019-11-26 22:05:10
+ * @LastEditTime: 2019-11-28 19:41:54
  * @Description: 
  -->
 <template>
-<div class="waibox">
-    <ul>
-        <li>
-            <div class="title">
-                <div class="check">
-                    <input type="checkbox" name="" id="">
-                </div> 
-                <span>sshuhu</span>
-            </div>
-            <div class="food">
-                <div class="check">
-                    <input type="checkbox" name="" id="">
+<div>
+    <div class="Waibox">
+    <div class="sea">
+            <p>购物车</p>
+            <span class="span" v-text="Text" @click="chang" >编辑</span>
+        </div>  
+        
+    </div>
+    <div class="waibox">
+        <ul>
+            <li v-for="(food,index) in foods" :key="index">
+                <div class="title">
+                    <div class="check">
+                        <input type="checkbox" v-model="food.isChecked">
+                    </div> 
+                    <span>{{food.shop}}></span>
                 </div>
-                <div class="img">
-                    <img src="" alt="">
-                </div>
-                <div class="add">
-                    <p>岩阿宝经审查</p>
-                    <span>火花塞不好</span>
-                    <div class="Add">
-                        <span>￥655</span>
-                        <div class="jj">
-                            <el-input-number v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                <div class="food">
+                    <div class="check">
+                        <input type="checkbox"  v-model="food.isChecked">
+                    </div>
+                    <div class="img">
+                        <img :src="food.img" alt="">
+                    </div>
+                    <div class="add">
+                        <p>{{food.name}}</p>
+                        <span>{{food.weight}}</span>
+                        <div class="Add">
+                            <span>￥{{food.price}}</span>
+                            <div class="jj">
+                                <el-input-number  v-model="food.count" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="title">
+            </li>
+        </ul>
+        <div class="ADD">
+            <div class="d">
                 <div class="check">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" id="allCheckBox" v-model="allcheck" @click="allCheck">
                 </div> 
-                <span>sshuhu</span>
+                <span>全选</span> 
             </div>
-            <div class="food">
-                <div class="check">
-                    <input type="checkbox" name="" id="">
+            <div class="over">
+                <div class="a">
+                    合计：<span id="addMoney">￥{{addMoney}}</span>
                 </div>
-                <div class="img">
-                    <img src="" alt="">
-                </div>
-                <div class="add">
-                    <p>岩阿宝经审查</p>
-                    <span>火花塞不好</span>
-                    <div class="Add">
-                        <span>￥655</span>
-                        <div class="jj">
-                            <el-input-number v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
-                        </div>
-                    </div>
-                </div>
+                <router-link to="">
+                    <div class="commit">结算</div>
+                </router-link>
             </div>
-        </li>
-    </ul>
-    <div class="ADD">
-        <div class="check">
-            <input type="checkbox" name="" id="">
-            <span>全选</span> 
-        </div> 
+            <!-- <div class="delect">
+                删除
+            </div> -->
+        </div>
     </div>
 </div>
+
 </template>
 <script>
+import axios from 'axios';
 export default {
     name:"Acommodity",
     data (){
         return {
-           num: 1
+           num: 1,
+           foods:[
+
+           ],
+           allcheck:false,
+           isShow:true,
+           Text:"编辑"
         };
+    },
+    created(){
+        axios.get('http://localhost:3000/foods')
+        .then(res=>{
+            let tempFoods = res.data;
+            //给每个商品增加属性 isChecked
+            for(let i in tempFoods){
+                tempFoods[i].isChecked = false;
+            }
+            this.foods=tempFoods;
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    },
+    computed:{
+        addMoney:function(){
+            let Money = 0;
+            let isAllCheck=true;
+            for(let i in this.foods){
+                if(this.foods[i].isChecked){
+                    Money+=this.foods[i].count*this.foods[i].price;
+                }else{
+                    isAllCheck=false;
+                }
+            }
+            this.allcheck=isAllCheck;
+            return Money;
+        }
     },
     methods: {
       handleChange(value) {
-      }
+      },
+        allCheck(){
+        //   console.log(this.allCheck);
+          console.log(event.target.checked);
+          this.foods.forEach(item=>{
+              item.isChecked = event.target.checked;
+          });
+      },
+      chang(){
+        //   v-show="isShow" 
+            this.isShow=!this.isShow
+            if(this.isShow){
+                this.Text="编辑"
+            }else{
+                this.Text="完成"
+            }
+        }
     }
   }
 
 </script>
 
 <style lang="scss" scoped="" type="text/css"> 
+.Waibox{
+    width: 100%;
+    background: #ffffff;
+    height: .45rem;
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+}
+.sea{
+    line-height: .45rem;
+}
+p{
+    width: 100%;
+    text-align: center;
+    font-size:.20rem;
+}
+.span{
+    position: fixed;
+    right: 10px;
+    top: 0px;
+    color: #6a6a6a;
+}
 .waibox{
     width: 100%;
     margin-top: .55rem;
@@ -129,7 +200,9 @@ input[type="checkbox"]:checked{ // 复选框选中的样式 使用带有对号�
     .img{
         width: .95rem;
         height: .95rem;
-        background-color: rgb(86, 202, 119);
+        img{
+            width: 100%;
+        }
     }
     .add{
         width: 2rem;
@@ -168,9 +241,49 @@ input[type="checkbox"]:checked{ // 复选框选中的样式 使用带有对号�
     height: .5rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #fff;
+    position: fixed;
+    bottom: .5rem;
+    z-index: 10;
+    .d{
+        display: flex;
+        align-items: center;
+    }
     span{
         line-height: .12rem;
     }
+    .a{
+        width: .85rem;
+        font-size: 12px;
+    }
+    .commit{
+        display: inline-block;
+        background-color: rgb(255, 144, 39);
+        width: 1.1rem;
+        height: .4rem;
+        text-align: center;
+        line-height: .4rem;
+        color: #fff;
+        border-radius: 22px;
+        margin-right:10px;
+    }
+    .over{
+        display: flex;
+        align-items: center;
+    }
+}
+#addMoney{
+    color: rgb(255, 129, 11);
+}
+.delect{
+    margin-right:10px;
+    width:1.1rem;
+    border:1px solid red;
+    height: .4rem; 
+    text-align: center;
+    line-height: .4rem;
+    border-radius: 22px;
+    color:rgb(255, 36, 83);
 }
 </style>
