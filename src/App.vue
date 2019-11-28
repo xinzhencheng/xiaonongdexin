@@ -2,7 +2,7 @@
  * @Author: 马川
  * @Date: 2019-11-23 12:08:12
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-26 10:33:44
+ * @LastEditTime: 2019-11-28 11:08:17
  * @Description: 
  -->
 <template>
@@ -31,9 +31,9 @@ export default {
       height: 100%;
        background: #f9f9f9 
     }
-    #app { 
+    /* #app { 
       margin-top: 5px;
-    }
+    } */
     ul,li{
       list-style: none;
     }

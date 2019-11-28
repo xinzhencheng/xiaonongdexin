@@ -4,7 +4,7 @@
  * @Author: mac
  * @Date: 2019-11-06 14:35:10
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-26 11:46:31
+ * @LastEditTime: 2019-11-27 19:54:21
  -->
 <template>
     <div class="box"> 
@@ -37,12 +37,12 @@ export default {
 }
 .log{
     width: 100%;
-    height:1.8rem;
+    height:1.2rem;
     display: flex;
     justify-content: center;
     img{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
     }
 
 }
