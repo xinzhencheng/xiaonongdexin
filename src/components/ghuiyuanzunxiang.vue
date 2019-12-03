@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-28 16:51:05
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-29 14:58:15
+ * @LastEditTime: 2019-12-02 15:33:26
  * @Description: 
  -->
 <template>
@@ -14,6 +14,7 @@
        </div>
        <div class="box2">
             <div class="qq"  v-for="(shangjia,index) in shangjias" :key="index">
+                <router-link to="/xiangqingye" class="router-link">
                 <div class="q1">
                     <img :src="shangjia.img1" alt="" class="img3">
                     <img :src="shangjia.img2" alt="" class="img4">
@@ -28,55 +29,8 @@
                         <img src="../assets/img/ic_shopcart_press.png" alt="">
                     </div>
                 </div>
+                </router-link>
             </div>
-             <!-- <div class="qq">
-                <div class="q1">
-                    <img src="../../static/img/huiyuan1.jpg" alt="" class="img3">
-                    <img src="../../static/img/ic_diamond_tag.png" alt="" class="img4">
-                </div>
-                <div class="q2">
-                    <p class="p1">精品渤海刀鱼（辽宁大连）</p>
-                    <p class="p2">每条鱼越重2—3斤，深海捕捞大连渤海刀鱼</p>
-                    <span>&nbsp;包邮服务&nbsp;</span>
-                    <span>&nbsp;冰鲜&nbsp;</span>
-                    <div class="kiki">
-                        <b>￥1500.0</b>
-                        <img src="../assets/img/ic_shopcart_press.png" alt="">
-                    </div>
-                </div>
-            </div>
-             <div class="qq">
-                <div class="q1">
-                    <img src="../../static/img/huiyuan1.jpg" alt="" class="img3">
-                    <img src="../../static/img/ic_diamond_tag.png" alt="" class="img4">
-                </div>
-                <div class="q2">
-                    <p class="p1">精品渤海刀鱼（辽宁大连）</p>
-                    <p class="p2">每条鱼越重2—3斤，深海捕捞大连渤海刀鱼</p>
-                    <span>&nbsp;包邮服务&nbsp;</span>
-                    <span>&nbsp;冰鲜&nbsp;</span>
-                    <div class="kiki">
-                        <b>￥1500.0</b>
-                        <img src="../assets/img/ic_shopcart_press.png" alt="">
-                    </div>
-                </div>
-            </div>
-             <div class="qq">
-                <div class="q1">
-                    <img src="../../static/img/huiyuan1.jpg" alt="" class="img3">
-                    <img src="../../static/img/ic_diamond_tag.png" alt="" class="img4">
-                </div>
-                <div class="q2">
-                    <p class="p1">精品渤海刀鱼（辽宁大连）</p>
-                    <p class="p2">每条鱼越重2—3斤，深海捕捞大连渤海刀鱼</p>
-                    <span>&nbsp;包邮服务&nbsp;</span>
-                    <span>&nbsp;冰鲜&nbsp;</span>
-                    <div class="kiki">
-                        <b>￥1500.0</b>
-                        <img src="../assets/img/ic_shopcart_press.png" alt="">
-                    </div>
-                </div>
-            </div> -->
        </div>
     </div>
 </template>
@@ -147,11 +101,14 @@ export default {
             background-color: #fff;
             margin-right:.3rem ;
             margin-top: .05rem;
-            display: flex;
+            .router-link{
+                width: 2.5rem;
+                display:inline-block;
+            }
             .q1{
                 width: 1.3rem;
                 height: 1.43rem;
-                /* float: left; */
+                float: left;
                 .img3{
                     width: 1.1rem;
                     height: 1.1rem;
@@ -168,8 +125,8 @@ export default {
             }
             .q2{
                 width: 1.2rem;
-                height: 1.43;
-                /* float: right; */
+                height: 1.43rem;
+                float: left;
                 .p1{
                     color:#333333;
                     width: 1.2rem;
@@ -204,9 +161,10 @@ export default {
                     img{
                         width: .25rem;
                         height: .25rem;
+                        z-index: 99;
                         position: relative;
                         top: .1rem;
-                        left: .1rem;
+                        left: .2rem;
                     }
                 }
             }

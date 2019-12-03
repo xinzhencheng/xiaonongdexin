@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-28 16:51:05
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-29 16:42:49
+ * @LastEditTime: 2019-12-02 15:34:38
  * @Description: 
  -->
 <template>
@@ -13,6 +13,7 @@
        </div>
        <div class="box2">
             <div class="qq"  v-for="(shangjia,index) in shangjias" :key="index">
+                <router-link to="/xiangqingye">
                 <div class="q1">
                     <img :src="shangjia.img" alt="" class="img3">
                     <!-- <img src="../../static/img/ic_diamond_tag.png" alt="" class="img4"> -->
@@ -27,6 +28,7 @@
                         <img src="../assets/img/ic_shopcart_press.png" alt="">
                     </div>
                 </div>
+                </router-link>
             </div>
        </div>
     </div>
