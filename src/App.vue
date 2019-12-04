@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -21,6 +22,8 @@
  * @Description: 
 >>>>>>> anfei
  -->
+=======
+>>>>>>> zhangteng
 <template>
   <div id="app">
     <router-view/>
@@ -34,6 +37,7 @@ export default {
 </script>
 
 <style>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 *{
@@ -64,11 +68,16 @@ em,i{
 =======
  *{
 >>>>>>> anfei
+=======
+	
+    *{
+>>>>>>> zhangteng
       margin: 0;
       padding: 0;
     }
     html{
       font-size: 26.67vw;
+<<<<<<< HEAD
     }
     body{
       font-size: 14px;
@@ -84,6 +93,18 @@ em,i{
       height: 100%;
     }
 >>>>>>> anfei
+=======
+      height: 100%;
+    }
+    body{
+      font-size: 14px;
+      height: 100%;
+    }
+    #app { 
+      margin-top: 5px;
+      background: #f9f9f9;
+    }
+>>>>>>> zhangteng
     ul,li{
       list-style: none;
     }
@@ -93,8 +114,13 @@ em,i{
       display: block;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 >>>>>>> mac
 =======
 >>>>>>> anfei
+=======
+
+
+>>>>>>> zhangteng
 </style>
