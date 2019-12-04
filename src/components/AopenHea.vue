@@ -2,7 +2,7 @@
  * @Author: 安菲
  * @Date: 2019-11-28 19:53:51
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-03 11:23:47
+ * @LastEditTime: 2019-12-04 14:42:26
  * @Description: 
  -->
 <template>
@@ -33,7 +33,7 @@ export default {
         })
         .then(action=>{
             if(action=='confirm'){
-                console.log('继续购物')
+                console.log('继续购买')
             }else{
                 console.log('回退')
                 this.$router.go(-1);

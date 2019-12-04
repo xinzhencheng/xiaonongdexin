@@ -2,7 +2,7 @@
  * @Author: 安菲
  * @Date: 2019-11-26 10:16:18
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-04 11:48:44
+ * @LastEditTime: 2019-12-04 14:51:11
  * @Description: 
  -->
 <template>
@@ -56,10 +56,10 @@
                     合计：<span id="addMoney">￥{{addMoney}}</span>
                 </div>
                 <router-link to="">
-                    <div class="commit">结算({{checkNum}})</div>
+                    <div class="commit" @click="toDo()">结算({{checkNum}})</div>
                 </router-link>
             </div>
-            <div class="delect" v-show="!isShow" @click="delGoods(food.name,index)">
+            <div class="delect" v-show="!isShow" @click="delGoods(foods.name)">
                 删除({{checkNum}})
             </div>
         </div>
@@ -69,6 +69,7 @@
 </template>
 <script>
 import axios from 'axios';
+import { Toast,MessageBox} from 'mint-ui'
 export default {
     name:"Acommodity",
     data (){
@@ -77,7 +78,7 @@ export default {
            foods:[
 
            ],
-    	    selectname:[],
+    	   selectname:[],
            allcheck:false,
            checkNum:0,
            isShow:true,
@@ -143,27 +144,51 @@ export default {
                 food.checked=!food.checked;
                 food.checked?this.checkNum++:this.checkNum--;
                 console.log(this.checkNum);
-                console.log(this.checkNum);
-                console.log(this.checkNum);
             }else{
                 this.$set(food,"checked",true);
                 
             }
         },
-        delGoods(name,index){
-            MessageBox.confirm('',{
-				title:'',
-				message:'确定删除该商品吗？',
-				confirmButtonText:'确定',
-				cancelButtonText:'取消'
-			}).then(action => {
-				if (action == 'confirm') {
-					// 刷新类表
-					this.getfoods();
-					// 取消全选
-					this.checkAll(false);
-				}
-			}).catch(error =>{});
+        toDo(){
+             if(this.checkNum>=1){
+                    setTimeout(()=>{
+                    this.$router.push({path:'/Vip'});//跳转结算页面
+                    },1000);     
+             }else{
+                 Toast('请选择要结算的商品');
+             }
+        },
+        delGoods(name){
+            if(this.checkNum>=1){
+                 MessageBox.confirm('',{
+                    title:'',
+                    message:'确定删除该商品吗？',
+                    confirmButtonText:'确定',
+                    cancelButtonText:'取消'
+                }).then(action => {
+                    if (action == 'confirm') {
+                        console.log("-------")
+                        // 刷新类表
+                        axios.post({
+                            type:"delete",
+                            url:"http://localhost:3000/foods/"+this.name,
+                            dataType:"json",
+                            success:function(e){
+                                console.log(e, '请求成功')
+                            },
+                            error:function(e){
+                                console.log(e, '请求失败')
+                            }
+                        })
+                        // this.getfoods();
+                        // 取消全选
+                        this.checkAll(false);
+                    }
+                }).catch(error =>{});
+            }else{
+                Toast('请选择要删除的商品');
+            }
+           
         }
     }
   }
