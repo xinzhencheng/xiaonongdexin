@@ -2,7 +2,7 @@
  * @Author: 司娟
  * @Date: 2019-11-28 14:31:02
  * @LastEditors: 司娟
- * @LastEditTime: 2019-12-02 15:39:30
+ * @LastEditTime: 2019-12-04 14:56:49
  * @Description: file content
  -->
 <template>
@@ -10,10 +10,10 @@
     <div class="top">
         <div class="sousuo">
             <img src="../assets/img/ic_search.png" alt="">
-            <input type="text" placeholder="搜索" v-model="Search">
+            <input type="text" placeholder="搜索">
         </div>
         <div class="nav">
-            <span @click="search">综合</span>
+            <span>综合</span>
             <span>价格<img src="../assets/img/ic_choose_none.png" alt=""></span>
             <span>销量</span>
             <span>地区<img src="../assets/img/ic_down_arrow.png" alt=""></span>

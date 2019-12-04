@@ -2,7 +2,7 @@
  * @Author: 司娟
  * @Date: 2019-12-02 15:43:42
  * @LastEditors: 司娟
- * @LastEditTime: 2019-12-03 10:53:45
+ * @LastEditTime: 2019-12-04 17:03:36
  * @Description: file content
  -->
 <template>
@@ -10,47 +10,70 @@
       <div class="tubiao">
         <i class="el-icon-close"></i>
       </div>
-      <div class="content">
-        <img src="../assets/img/pic1.jpg" alt="">
-        <div class="jieshao">
-          <span class="biaoti">滩羊 礼盒（宁夏盐池）</span>
-          <i>￥378.00</i>
-          <p>
-            <span>库存：199件</span>
-            <em>销量：1件</em>
-          </p>
-        </div>
-      </div>
-      <div class="guige">
-        <p>规格</p>
-        <ul>
-          <li>礼盒</li>
-          <li>礼盒</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <span class="count">购买数量</span>
-        <div class="right">
-           <span class="btn" v-bind:class="{boxcls:isYellow}" v-on:click="reduceCount">-</span>
-           <em>{{counter}}</em>
-           <span class="btn" v-on:click="addCount">+</span>
-        </div>        
-      </div>
-      <div class="true">
-        <input type="button" value="确定">
-      </div>      
+      <div style="display:none" >{{id}}</div>
+      <ul>
+        <li v-for="(goodslist,index) in goodslists" :key="index">
+           <router-link  :to='"/Ssousuo/"+goodslist.id'>
+            <div class="content">
+              <img :src="goodslist.img" alt="">
+              <div class="jieshao">
+                <span class="biaoti">{{goodslist.biaoti}}</span>
+                <i>￥{{goodslist.jiaqian}}</i>
+                <p>
+                  <span>库存：{{goodslist.kucun}}件</span>
+                  <em>销量：{{goodslist.xiaoliang}}件</em>
+                </p>
+              </div>
+            </div>
+            <div class="guige">
+              <p>规格</p>
+              <ul>
+                <li>礼盒</li>
+                <li>礼盒</li>
+              </ul>
+            </div>
+            <div class="bottom">
+              <span class="count">购买数量</span>
+              <div class="right">
+                <span class="btn" v-bind:class="{boxcls:isYellow}" v-on:click="reduceCount">-</span>
+                <em>{{counter}}</em>
+                <span class="btn" v-on:click="addCount">+</span>
+              </div>        
+            </div>
+            <div class="true">
+              <input type="button" value="确定">
+            </div>
+          </router-link>
+        </li>
+      </ul>      
   </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
   name: 'Back',
+  props:['id'],
   data () {
     return {
+       goodslists:[],
+       shop:[],
        counter:1,
        isYellow:true  
     }
   },
- 
+  created() {
+     //从后端获取数据     
+     axios.get('http://localhost:3000/rementuijies')
+     .then(res=>{ 
+         this.goodslists = res.data;
+         this.shop = this.getBooksByType(this.goodslists);
+         //内部数据，由于没有渲染在组件里，所以，没有触发组件更新
+        //  this.shops = this.getBooksByType(this.goodslists);//内部数据，由于渲染到了页面，所以，触发了组件更新
+     })
+     .catch(err=>{
+         console.log(err);
+     });
+  },
   methods:{
         reduceCount:function(){
              //this是vue对象
@@ -65,7 +88,16 @@ export default {
             // this是vue对象
             // console.log(this);
             this.counter++;
-        }  
+        },
+        getBooksByType(data){//根据类型获取数据
+         let arr=[];
+         for(let i in data){
+             if(data[i].id==this.id){
+                 arr.push(data[i]);
+             }
+         }
+         return arr;
+     }  
   }
 }
 </script>

@@ -2,7 +2,7 @@
  * @Author: 司娟
  * @Date: 2019-11-29 14:43:15
  * @LastEditors: 司娟
- * @LastEditTime: 2019-12-04 09:20:59
+ * @LastEditTime: 2019-12-04 16:44:46
  * @Description: file content
  -->
 <template>
@@ -19,36 +19,45 @@
                     <span>&nbsp;{{goodslist.tiaojian2}}&nbsp;</span>
                     <div class="kiki">
                         <b>￥{{goodslist.jiaqian}}</b>
-                        <img src="../assets/img/ic_shopcart_press.png" alt="" @click="show">
+                        <img src="../assets/img/ic_shopcart_press.png" alt="" @click="show(goodslist.id)">
                     </div>
                 </div>
             </li>
         </ul>
-        <!-- <mt-popup v-model="popupVisible" position="bottom" class="show">
-            <Stanchuang></Stanchuang>
-        </mt-popup>  -->
+        <mt-popup v-model="popupVisible" position="bottom" class="show">
+            <Stanchuang :id="currtype"></Stanchuang>
+        </mt-popup>
     </div>    
 </template>
 
 <script>
+import Vue from 'vue';
 import Stanchuang from './Stanchuang';
-import { Toast } from 'mint-ui';
+// import { Toast } from 'mint-ui';
+Vue.component(Popup.name, Popup);
 import { Popup } from 'mint-ui';
 import axios from 'axios';
 export default {
   name: 'Sqbottom',
+  components:{
+      Stanchuang
+  },
   data () {
     return {
         popupVisible:false,
         goodslists:[],
-        shops:[]
+        shops:[],
+        currtype:""
+        // isshow:false
     }
   },
   created() {
      //从后端获取数据     
      axios.get('http://localhost:3000/rementuijies')
      .then(res=>{ 
-         this.goodslists = res.data;//内部数据，由于没有渲染在组件里，所以，没有触发组件更新
+         this.goodslists = res.data;
+         this.currtype = this.goodslists[0].id;
+         //内部数据，由于没有渲染在组件里，所以，没有触发组件更新
         //  this.shops = this.getBooksByType(this.goodslists);//内部数据，由于渲染到了页面，所以，触发了组件更新
      })
      .catch(err=>{
@@ -60,8 +69,9 @@ export default {
     //   this.shops = this.getBooksByType(this.goodslists);
   },
   methods:{
-      show(){
+      show(id){
           this.popupVisible=true;
+          this.currtype = id;          
       }
     //    getBooksByType(data){//根据类型获取数据
     //      var search = this.Search;
@@ -81,11 +91,8 @@ export default {
     //         })
     //  }
   },
-   components:{
-      Stanchuang
-  },
+   
 }
-
 </script>
 
 <style scoped lang=scss>
@@ -160,6 +167,10 @@ export default {
                 }
             }
         }
+    }
+    .show{
+        width: 100%;
+        border-radius: .1rem;
     }
 }
 
