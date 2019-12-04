@@ -1,9 +1,17 @@
 <!--
+<<<<<<< HEAD
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
  * @LastEditors: 司娟
  * @LastEditTime: 2019-11-26 17:03:22
  * @Description: file content
+=======
+ * @Author: 马川
+ * @Date: 2019-11-23 12:08:12
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-02 09:18:22
+ * @Description: 
+>>>>>>> mac
  -->
 <template>
   <div id="app">
@@ -18,6 +26,7 @@ export default {
 </script>
 
 <style>
+<<<<<<< HEAD
 *{
   margin: 0;
   padding: 0;
@@ -40,4 +49,31 @@ a{
 em,i{
   font-style: normal;
 }
+=======
+
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html{
+      font-size: 26.67vw;
+    }
+    body{
+      font-size: 14px;
+      height: 100%;
+       background: #f9f9f9 
+    }
+    /* #app { 
+      margin-top: 5px;
+    } */
+    ul,li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+      color:#333;
+      display: block;
+    }
+
+>>>>>>> mac
 </style>

@@ -1,9 +1,17 @@
 /*
+<<<<<<< HEAD
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
  * @LastEditors: 郭涛
  * @LastEditTime: 2019-11-27 19:06:56
  * @Description: file content
+=======
+ * @Author: 马川
+ * @Date: 2019-11-23 12:03:56
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-11-26 21:30:55
+ * @Description: 
+>>>>>>> mac
  */
 'use strict'
 const path = require('path')
@@ -72,9 +80,15 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
+<<<<<<< HEAD
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
+=======
+      { 
+        test: /\.scss$/, 
+        loaders: ["style", "css", "sass"] 
+>>>>>>> mac
       }
     ]
   },
