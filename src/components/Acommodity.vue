@@ -41,6 +41,7 @@
                         </div>
                     </div>
                 </div>
+                
             </li>
         </ul>
         <div class="ADD">
@@ -50,7 +51,7 @@
                 </div> 
                 <span>全选</span> 
             </div>
-            <div class="over">
+            <div class="over" v-show="isShow">
                 <div class="a">
                     合计：<span id="addMoney">￥{{addMoney}}</span>
                 </div>
@@ -58,9 +59,9 @@
                     <div class="commit">结算</div>
                 </router-link>
             </div>
-            <!-- <div class="delect">
+            <div class="delect" v-show="!isShow">
                 删除
-            </div> -->
+            </div>
         </div>
     </div>
 </div>
