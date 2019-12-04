@@ -2,7 +2,7 @@
  * @Author: 马川
  * @Date: 2019-11-23 12:03:56
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-25 20:12:58
+ * @LastEditTime: 2019-11-29 17:25:27
  * @Description: 
  */
 'use strict'
@@ -18,13 +18,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        pathRewrite: {
-         	 '^/api': ''
-        }
-      }
+      // '/api': {
+      //   target: 'http://localhost:3000',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //    	 '^/api': ''
+      //   }
+      // }
     },
 
     // Various Dev Server settings

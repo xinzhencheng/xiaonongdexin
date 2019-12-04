@@ -2,7 +2,7 @@
  * @Author: 马川
  * @Date: 2019-11-23 12:08:12
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-28 11:08:17
+ * @LastEditTime: 2019-12-02 09:18:22
  * @Description: 
  -->
 <template>
@@ -42,5 +42,5 @@ export default {
       color:#333;
       display: block;
     }
-   
+
 </style>

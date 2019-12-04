@@ -4,7 +4,7 @@
  * @Author: mac
  * @Date: 2019-11-06 14:35:10
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-28 11:02:26
+ * @LastEditTime: 2019-12-04 15:38:06
  -->
 <template>
     <div class="box"> 
@@ -17,8 +17,8 @@
                         <input type="text" ref="patClear" v-model="userPhone" class="inpute" placeholder="请输入用户名或手机号" onfocus="this.placeholder=''" onblur="this.placeholder='请输入用户名或手机号'">
                     </div>
                     <div class="middle5 middle6">
-                        <p>密码</p>
-                        <input type="password" ref="pathClear" v-model="password" class="inpute" placeholder="请输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'">
+                        <p>旧密码</p>
+                        <input type="password" ref="pathClear" v-model="password" class="inpute" placeholder="请输入原来的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入原来的密码'">
                         <!-- <el-input class="inpute inputs" v-model="password" placeholder="请输入密码"  onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'" clearable show-password></el-input> -->
                     </div>
                     
@@ -40,12 +40,13 @@
 
 <script>
 import { Toast } from 'mint-ui';
+import axios from 'axios';
 
 export default {
   name: 'Mloginmiddle',
   data () {
     return {
-      show:false,
+        show:false,
         userPhone: '',
         password: '',
         newpassword:''
@@ -54,17 +55,31 @@ export default {
   methods:{
       loginCheck(){
           localStorage.setItem('userPhone',this.userPhone);
+           console.log(this.password)
           if(this.userPhone =="" || this.password =="" || this.newpassword ==""){
-              Toast('手机号或密码不能为空');
+              Toast('亲！你必须的在相应的文本框中输入对应的内容');
           }else{
-            // axios.get('/user/deng?uname='+this.userPhone+'&upass='+this.password)
-            // .then(res=>{
-            //     console.log(res.data);  
-            // })
-              
-            // .catch(err=>{
-            //     console.log(err);
-            // })
+            let id=localStorage.getItem("id")
+            console.log(id)
+             axios({
+                    method:"patch",
+                    url:"http://localhost:3000/login/"+id,  
+                    data:{
+                        userpass:this.password,
+                       
+                    }
+                })
+                .then((data)=>{
+                    // console.log(data); 
+                    console.log("修改成功");
+                    // console.log(data); 
+                    // console.log("修改成功");
+                    // this.$router.push({
+                        path: '/Login'
+                        
+                    // })
+                })
+
             setTimeout(()=>{
                  Toast("提交成功")
                 this.$router.push('/');

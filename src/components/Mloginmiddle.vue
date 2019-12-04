@@ -4,7 +4,7 @@
  * @Author: mac
  * @Date: 2019-11-06 14:35:10
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-28 11:07:03
+ * @LastEditTime: 2019-12-04 15:21:10
  -->
 <template>
     <div class="box"> 
@@ -24,7 +24,6 @@
                     <div class="middle5 middle6">
                         <p>密码</p>
                         <input type="password" ref="pathClear" v-model="password" class="inpute" placeholder="请输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'">
-                        <!-- <el-input class="inpute inputs" v-model="password" placeholder="请输入密码"  onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'" clearable show-password></el-input> -->
                     </div>
                     <div class="middle5 middle7">
                         <router-link to="/Zhuce"><span class="spaa"><i class="el-icon-back"></i> 前往注册</span> </router-link>
@@ -48,11 +47,13 @@
                     </div>
                     <div class="middle5">
                         <p>用户名/手机号</p>
-                        <input type="text" v-model="userPhone" class="inpute" placeholder="请输入用户名或手机号" onfocus="this.placeholder=''" onblur="this.placeholder='请输入用户名或手机号'">
+                        <input type="text" ref="patClear" v-model="userPhone" id="phone" class="inpute" placeholder="请输入用户名或手机号" onfocus="this.placeholder=''" onblur="this.placeholder='请输入用户名或手机号'">
                     </div>
                     <div class="middle5 middle6">
                         <p>验证码</p>
-                        <input type="password" v-model="password" class="inpute" placeholder="请输入验证码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入验证码'">
+                        <input type="password" ref="paClear" v-model="code" id="code" class="inpute" placeholder="请输入验证码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入验证码'">
+                        <button class="btn1" id="o" @click="send()"  v-if="show">获取验证码</button>
+                        <!-- <button class="btn1" id="o" @click="send()">验证码已发送</button> -->
                     </div>
                     <div class="middle5 middle7">
                        <router-link to="/Zhuce"> <span class="spaa"><i class="el-icon-back"></i> 前往注册</span> </router-link>
@@ -62,7 +63,8 @@
         </div>
         <div class="mot">
             <div class="motu">
-                <button class="mouti"  @touchstart="loginCheck">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                <button class="mouti"  @click="loginCheck()">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                <button class="mouti mouyy" v-if="show" @click="loginCheck1()">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>
             </div>
             <div class="footer1">
                 <div class="footer2">
@@ -82,14 +84,17 @@
 
 <script>
 import { Toast } from 'mint-ui';
+import axios from 'axios';
 
 export default {
   name: 'Mloginmiddle',
   data () {
     return {
-      show:false,
+        show:false,
         userPhone: '',
-        password: ''
+        password: '',
+        code:'',
+        id:''
     }
   },
   methods:{
@@ -99,30 +104,70 @@ export default {
       middle4(){
           this.show = !this.show
       },
+      //发送验证码
+      send(){
+          var phoneVal = document.getElementById("phone").value;
+          if(phoneVal ==""){
+             Toast('手机号或密码不能为空');
+          }else{
+            //   axios.post('/user/login_phone/'+this.username);
+              Toast('验证码已发送');
+          }
+      },
+      //账户登录
       loginCheck(){
-          localStorage.setItem('userPhone',this.userPhone);
+        //   localStorage.setItem('userPhone',this.userPhone);
           if(this.userPhone =="" || this.password ==""){
               Toast('手机号或密码不能为空');
           }else{
-            // axios.get('/user/deng?uname='+this.userPhone+'&upass='+this.password)
-            // .then(res=>{
-            //     console.log(res.data);  
-            // })
+            axios.get('http://localhost:3000/login?userPhone='+this.userPhone)
+            .then(res=>{
+                console.log(res.data);
+                if(this.userPhone==res.data[0].userPhone && this.password==res.data[0].userpass){
+                setTimeout(()=>{
+                    this.id=res.data[0].id
+                    console.log(this.id)
+                    localStorage.setItem('id',this.id);
+                    localStorage.setItem('userPhone',this.userPhone);
+                    Toast("登录成功")
+                    this.$router.push('/');
+                },1100);
+
+                }
+            
+            })
               
-            // .catch(err=>{
-            //     console.log(err);
-            // })
-            setTimeout(()=>{
-                 Toast("登录成功")
-                this.$router.push('/');
-            },1100);
+            .catch(err=>{
+                console.log(err);
+            })
         }
         
               this.$refs.pathClear.value =''
               this.$refs.patClear.value =''
-      }
+      },
+    loginCheck1(){
+            // var phoneVal=document.getElementById("phone").value;
+            // var codeVal=document.getElementById("code").value;
+              localStorage.setItem('userPhone',this.userPhone);
+            if(this.userPhone ==""|| this.code ==""){
+                Toast('手机号或验证码不能为空');
+                return;
+            }else{
+                
+
+                setTimeout(()=>{
+                    localStorage.setItem('userPhone',this.userPhone);
+                    Toast("登录成功")
+                    this.$router.push('/');
+                },1100);
+            }
+            
+                this.$refs.patClear.value =''
+                this.$refs.paClear.value =''
+        }
+    },
+
   }
-}
 </script>
 
 <style lang="scss" scoped="" type="text/css">
@@ -133,6 +178,14 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+}
+.motu{
+    position: relative;
+}
+.mouyy{
+    position: absolute;
+    top: 0.3rem;
+    background: #f85220
 }
 .el-icon-close{
   font-size: 22px;
@@ -221,7 +274,22 @@ export default {
             // } 
         }
         .middle6{
-            margin-top: .1rem
+            margin-top: .1rem;
+            position: relative;
+            .btn1{
+                position: absolute;
+                right: 0;
+                top: .3rem;
+                border: none;
+                background: white;
+                border-radius: 30px;
+                border:  1px solid #f85220;
+                outline: none;
+                width: 1rem;
+                height: .3rem;
+                color: #f85220
+
+            }
         }
         .middle7{
             margin-top: .1rem;

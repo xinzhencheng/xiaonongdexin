@@ -4,12 +4,13 @@
  * @Author: mac
  * @Date: 2019-11-06 14:35:10
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-30 17:59:08
+ * @LastEditTime: 2019-11-28 16:16:37
  -->
 <template>
     <div class="box"> 
         <div class="mac">
-          <i class="el-icon-close" @click="back()"></i>
+          <i class="el-icon-arrow-left" @click="back()"></i>
+          <div class="wangji">我的订单</div>
         </div>
     </div>  
 </template>
@@ -32,20 +33,26 @@ export default {
 </script>
 
 <style scoped>
-.box{
-  background: white;
-  width: 100%;
-  height: .3rem;
-}
+
 .mac{
-    width: 85%;
+    width: 100%;
+    height: .5rem;
     margin: 0 auto;
-    height: .3rem;
+    background: white;
     display: flex;
-    align-items: center;    
+    align-items: center; 
     /* background-color: blue */
 }
-.el-icon-close{
-  font-size: 22px;
+.wangji{
+    width: 100%;
+    height: .4rem;
+    text-align: center;
+    line-height: .4rem;
+    margin-right: .15rem;
+    font-size: 18px
+}
+.el-icon-arrow-left{
+  margin-left: .1rem; 
+  font-size: 30px;
 }
 </style>

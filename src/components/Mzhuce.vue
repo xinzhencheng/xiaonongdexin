@@ -4,7 +4,7 @@
  * @Author: mac
  * @Date: 2019-11-06 14:35:10
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-28 10:09:47
+ * @LastEditTime: 2019-12-03 10:56:27
  -->
 <template>
     <div class="box"> 
@@ -21,25 +21,25 @@
                     </div>
                     <div class="middle5 middle6">
                         <p>用户名</p>
-                        <input type="password" ref="paClear" class="inpute" placeholder="请输入用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入用户名'">
-                        <!-- <el-input class="inpute inputs" v-model="password" placeholder="请输入密码"  onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'" clearable show-password></el-input> -->
+                        <input type="text" ref="paClear" v-model="username" class="inpute" placeholder="请输入用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入用户名'">
+                        
                     </div>
                     <div class="middle5 middle6">
                         <p>密码</p>
-                        <input type="password" ref="pClear" class="inpute" placeholder="请输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'">
-                        <!-- <el-input class="inpute inputs" v-model="password" placeholder="请输入密码"  onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'" clearable show-password></el-input> -->
+                        <input type="password" ref="pClear" v-model="userpass" class="inpute" placeholder="请输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'">
+                       
                     </div>
                     <div class="middle5 middle6">
                         <p>确定密码</p>
-                        <input type="password" ref="Clear" class="inpute" placeholder="请确定密码" onfocus="this.placeholder=''" onblur="this.placeholder='请确定密码'">
-                        <!-- <el-input class="inpute inputs" v-model="password" placeholder="请输入密码"  onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'" clearable show-password></el-input> -->
+                        <input type="password" ref="Clear" v-model="userpasss" class="inpute" placeholder="请确定密码" onfocus="this.placeholder=''" onblur="this.placeholder='请确定密码'">
+                        
                     </div>
                 </div>
             </div>
         <div class="mot">
             <div class="motu">
                 <router-link to="/"><span class="spaa"><i class="el-icon-back"></i> 前往登录</span> </router-link>
-                <button class="mouti"  @touchstart="loginCheck">注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+                <button class="mouti"  @click="loginCheck()">注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册</button>
             </div>
         </div>
     </div>  
@@ -48,36 +48,42 @@
 <script>
 import { Toast } from 'mint-ui';
 
+    import axios from 'axios';
 export default {
   name: 'Mloginmiddle',
   data () {
     return {
-      show:true
+      show:true,
+      userPhone:'',
+      username:'',
+      userpass:'',
+      userpasss:''
     }
   },
   methods:{
-      middle3:function(){
-          this.show = !this.show
-      },
-      middle4(){
-          this.show = !this.show
-      },
+     
       loginCheck(){
-          localStorage.setItem('userPhone',this.userPhone);
-          if(this.userPhone =="" || this.password ==""){
-              Toast('手机号或密码不能为空');
+        //   localStorage.setItem('userPhone',this.userPhone);
+          if(this.userPhone =="" || this.username =="" || this.userpass =="" || this.userpasss ==""){
+              Toast('请再输入框输入对应的内容');
+              return;
           }else{
-            // axios.get('/user/deng?uname='+this.userPhone+'&upass='+this.password)
-            // .then(res=>{
-            //     console.log(res.data);  
-            // })
-              
-            // .catch(err=>{
-            //     console.log(err);
-            // })
+            axios({
+                    method:"post",
+                    url:"http://localhost:3000/login",
+                    data:{
+                        userPhone:this.userPhone,
+                        username:this.username,
+                        userpass:this.userpass,
+                    }
+                })
+                .then((res)=>{
+                    console.log(res.data) 
+                    
+                })
             setTimeout(()=>{
                  Toast("注册成功")
-                // this.$router.push('/');
+                this.$router.push('/Login');
             },1100);
         }
 
