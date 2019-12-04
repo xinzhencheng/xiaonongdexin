@@ -1,8 +1,8 @@
 <!--
  * @Author: 安菲
  * @Date: 2019-11-26 10:16:18
- * @LastEditors: 安菲
- * @LastEditTime: 2019-11-28 19:41:54
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-04 11:48:44
  * @Description: 
  -->
 <template>
@@ -19,13 +19,13 @@
             <li v-for="(food,index) in foods" :key="index">
                 <div class="title">
                     <div class="check">
-                        <input type="checkbox" v-model="food.isChecked">
+                        <input type="checkbox" v-model="food.isChecked" @click="selectGoods(food)">
                     </div> 
                     <span>{{food.shop}}></span>
                 </div>
                 <div class="food">
                     <div class="check">
-                        <input type="checkbox"  v-model="food.isChecked">
+                        <input type="checkbox"  v-model="food.isChecked" @click="selectGoods(food)">
                     </div>
                     <div class="img">
                         <img :src="food.img" alt="">
@@ -47,7 +47,7 @@
         <div class="ADD">
             <div class="d">
                 <div class="check">
-                    <input type="checkbox" id="allCheckBox" v-model="allcheck" @click="allCheck">
+                    <input type="checkbox" id="allCheckBox" v-model="allcheck" @click="allCheck()">
                 </div> 
                 <span>全选</span> 
             </div>
@@ -56,11 +56,11 @@
                     合计：<span id="addMoney">￥{{addMoney}}</span>
                 </div>
                 <router-link to="">
-                    <div class="commit">结算</div>
+                    <div class="commit">结算({{checkNum}})</div>
                 </router-link>
             </div>
-            <div class="delect" v-show="!isShow">
-                删除
+            <div class="delect" v-show="!isShow" @click="delGoods(food.name,index)">
+                删除({{checkNum}})
             </div>
         </div>
     </div>
@@ -77,9 +77,12 @@ export default {
            foods:[
 
            ],
+    	    selectname:[],
            allcheck:false,
+           checkNum:0,
            isShow:true,
-           Text:"编辑"
+           Text:"编辑",
+           checked:false
         };
     },
     created(){
@@ -114,12 +117,17 @@ export default {
     methods: {
       handleChange(value) {
       },
-        allCheck(){
-        //   console.log(this.allCheck);
+        allCheck(flag){
+          console.log(this.allCheck);
+ 
           console.log(event.target.checked);
           this.foods.forEach(item=>{
               item.isChecked = event.target.checked;
-          });
+            
+          }); 
+          event.target.checked? this.checkNum = this.foods.length : this.checkNum = 0;
+
+          console.log(this.checkNum);
       },
       chang(){
         //   v-show="isShow" 
@@ -129,6 +137,33 @@ export default {
             }else{
                 this.Text="完成"
             }
+        },
+        selectGoods(food){
+            if(typeof food.checkNum=='undefined'){
+                food.checked=!food.checked;
+                food.checked?this.checkNum++:this.checkNum--;
+                console.log(this.checkNum);
+                console.log(this.checkNum);
+                console.log(this.checkNum);
+            }else{
+                this.$set(food,"checked",true);
+                
+            }
+        },
+        delGoods(name,index){
+            MessageBox.confirm('',{
+				title:'',
+				message:'确定删除该商品吗？',
+				confirmButtonText:'确定',
+				cancelButtonText:'取消'
+			}).then(action => {
+				if (action == 'confirm') {
+					// 刷新类表
+					this.getfoods();
+					// 取消全选
+					this.checkAll(false);
+				}
+			}).catch(error =>{});
         }
     }
   }

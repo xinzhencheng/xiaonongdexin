@@ -1,8 +1,8 @@
 /*
  * @Author: 安菲
  * @Date: 2019-11-25 20:02:28
- * @LastEditors: 安菲
- * @LastEditTime: 2019-11-26 11:14:33
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-04 10:18:03
  * @Description: 
  */
 'use strict'
@@ -74,6 +74,10 @@ module.exports = {
       },
       { test: /\.scss$/, 
         loaders: ["style", "css", "sass"] 
+      },
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
       }
     ]
   },

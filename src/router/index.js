@@ -2,7 +2,7 @@
  * @Author: 安菲
  * @Date: 2019-11-25 20:05:01
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-03 10:05:00
+ * @LastEditTime: 2019-12-04 10:21:18
  * @Description: 
  */
 import Vue from 'vue'
@@ -18,7 +18,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/ShoppingCar',
+      path: '/',
       name: 'ShoppingCar',
       component: ShoppingCar
     },
