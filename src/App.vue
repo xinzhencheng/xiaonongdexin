@@ -1,5 +1,6 @@
 <!--
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
  * @LastEditors: 司娟
@@ -12,6 +13,13 @@
  * @LastEditTime: 2019-12-02 09:18:22
  * @Description: 
 >>>>>>> mac
+=======
+ * @Author: 安菲
+ * @Date: 2019-11-25 20:05:01
+ * @LastEditors: 安菲
+ * @LastEditTime: 2019-11-26 21:53:29
+ * @Description: 
+>>>>>>> anfei
  -->
 <template>
   <div id="app">
@@ -26,6 +34,7 @@ export default {
 </script>
 
 <style>
+<<<<<<< HEAD
 <<<<<<< HEAD
 *{
   margin: 0;
@@ -52,6 +61,9 @@ em,i{
 =======
 
     *{
+=======
+ *{
+>>>>>>> anfei
       margin: 0;
       padding: 0;
     }
@@ -60,12 +72,18 @@ em,i{
     }
     body{
       font-size: 14px;
+<<<<<<< HEAD
       height: 100%;
        background: #f9f9f9 
     }
     /* #app { 
       margin-top: 5px;
     } */
+=======
+      background: #f5f5f5;
+      height: 100%;
+    }
+>>>>>>> anfei
     ul,li{
       list-style: none;
     }
@@ -74,6 +92,9 @@ em,i{
       color:#333;
       display: block;
     }
+<<<<<<< HEAD
 
 >>>>>>> mac
+=======
+>>>>>>> anfei
 </style>

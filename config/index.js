@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /*
  * @Author: 马川
@@ -8,6 +9,8 @@
  * @Description: 
  */
 >>>>>>> mac
+=======
+>>>>>>> anfei
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -21,6 +24,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 <<<<<<< HEAD
+<<<<<<< HEAD
     proxyTable: {},
 =======
     proxyTable: {
@@ -33,6 +37,9 @@ module.exports = {
       // }
     },
 >>>>>>> mac
+=======
+    proxyTable: {},
+>>>>>>> anfei
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

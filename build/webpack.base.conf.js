@@ -1,5 +1,6 @@
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
  * @LastEditors: 郭涛
@@ -12,6 +13,13 @@
  * @LastEditTime: 2019-11-26 21:30:55
  * @Description: 
 >>>>>>> mac
+=======
+ * @Author: 安菲
+ * @Date: 2019-11-25 20:02:28
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-04 10:18:03
+ * @Description: 
+>>>>>>> anfei
  */
 'use strict'
 const path = require('path')
@@ -81,6 +89,7 @@ module.exports = {
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
@@ -89,6 +98,14 @@ module.exports = {
         test: /\.scss$/, 
         loaders: ["style", "css", "sass"] 
 >>>>>>> mac
+=======
+      { test: /\.scss$/, 
+        loaders: ["style", "css", "sass"] 
+      },
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+>>>>>>> anfei
       }
     ]
   },

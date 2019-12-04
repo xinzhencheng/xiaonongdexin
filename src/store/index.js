@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  * @Author: CoolWind
  * @Date: 2019-11-07 19:29:59
  * @LastEditors: 马川
@@ -36,3 +37,28 @@ export default new VueX.Store({
 
     }
 })
+=======
+ * @Author: 安菲
+ * @Date: 2019-11-28 15:25:59
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-02 23:27:08
+ * @Description: 
+ */
+import vue from 'vue'
+import Vuex from 'vuex'
+
+vue.use(Vuex)
+let store = new Vuex.Store({
+    state:{
+        
+    },
+    mutations:{
+        add(state){
+            // state.count++;
+        }
+    }
+})
+
+
+export default store;
+>>>>>>> anfei
