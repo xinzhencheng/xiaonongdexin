@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 /*
 <<<<<<< HEAD
 <<<<<<< HEAD
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-27 19:06:56
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 17:06:49
  * @Description: file content
 =======
  * @Author: 马川
@@ -22,15 +22,14 @@
  * @Description: 
 >>>>>>> anfei
  */
-=======
->>>>>>> zhangteng
+
 'use strict'
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-<<<<<<< HEAD
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -92,24 +91,24 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
-=======
+      },
+
       { 
         test: /\.scss$/, 
         loaders: ["style", "css", "sass"] 
->>>>>>> mac
-=======
+      },
       { test: /\.scss$/, 
         loaders: ["style", "css", "sass"] 
       },
       {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
->>>>>>> anfei
+
       }
     ]
   },
@@ -126,7 +125,7 @@ module.exports = {
     child_process: 'empty'
   }
 }
-=======
+
 function resolve(dir) {
 	return path.join(__dirname, '..', dir)
 }
@@ -204,4 +203,4 @@ module.exports = {
 		child_process: 'empty'
 	}
 }
->>>>>>> zhangteng
+

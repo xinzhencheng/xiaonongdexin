@@ -1,24 +1,29 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-12-03 10:46:19
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-03 11:17:10
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 19:18:55
  * @Description: 
  -->
 <template>
     <div id="box">
         <p>我的功能</p>
         <div class="pp1">
-            <img src="../assets/img/ic_my_bankcard.png" alt="">
-            <span>银行卡</span>
+            <router-link to='/myyinhangka'>
+                <img src="../assets/img/ic_my_bankcard.png" alt="">
+                <span>银行卡</span>
+            </router-link>
         </div>
         <div class="pp1">
             <img src="../assets/img/ic_my_recommend.png" alt="">
             <span>推介有礼</span>
         </div>
         <div class="pp1">
-            <img src="../assets/img/ic_address.png" alt="">
-            <span>收货地址</span>
+            <router-link to='/shouhuodizhi'>
+                <img src="../assets/img/ic_address.png" alt="">
+                <span>收货地址</span>
+            </router-link>
+
         </div>
         <div class="pp1">
             <img src="../assets/img/ic_message.png" alt="">

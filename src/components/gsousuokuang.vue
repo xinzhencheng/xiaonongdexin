@@ -1,14 +1,14 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-11-26 14:51:03
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-29 16:58:11
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 18:12:09
  * @Description: 
  -->
 <template>
   <div id="box">
         <img src="../assets/img/gitubiao.png" alt="" class="gitubiao">
-        <router-link to="/sousuoye">
+        <router-link to="/Ssousuo">
             <input type="text" class="input1" placeholder="搜索">
             <img src="../assets/img/ic_search.png" alt="" class="sousuo">
         </router-link>

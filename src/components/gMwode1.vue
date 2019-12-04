@@ -1,13 +1,15 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-12-02 15:49:27
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-02 21:23:40
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 19:07:52
  * @Description: 
  -->
 <template>
     <div id="box">
-        <i class="el-icon-setting"></i>
+        <router-link to='/xitongshezhi'>
+            <i class="el-icon-setting"></i>
+        </router-link>
         <img src="../assets/img/touxiang1.png" alt="" class="img1">
         <span class="span1">独行者</span>
         <br/>

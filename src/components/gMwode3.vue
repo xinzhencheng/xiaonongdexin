@@ -1,13 +1,15 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-12-03 09:15:07
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-03 10:27:10
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 19:25:21
  * @Description: 
  -->
 <template>
     <div id="box">
-        <img src="../assets/img/kaitonghuiyuan.png" alt="" class="img1">
+        <router-link to='/Vip'>
+            <img src="../assets/img/kaitonghuiyuan.png" alt="" class="img1">
+        </router-link>
         <div class="hhh1">
             <div class="ppp1 ppp2">
                 <p class="p1">优惠券</p>
@@ -18,9 +20,12 @@
                 <p class="p2"><span>0</span>张</p>
             </div>
             <div class="ppp1 ppp4">
-                <p class="p1">收藏</p>
-                <p class="p2"><span>0</span>个</p>
-            </div>
+                <router-link to='/shoucang'>
+                    <p class="p1">收藏</p>
+                    <p class="p2"><span>0</span>个</p>
+                </router-link>    
+            </div>  
+          
         </div>
     </div>   
 </template>
@@ -30,6 +35,7 @@
 </script>
 
 <style scoped lang=scss>
+
    #box{
        width: 90%;
        padding-left: 5%;

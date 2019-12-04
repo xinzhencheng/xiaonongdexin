@@ -12,7 +12,7 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/fenlei">
+              <router-link to="/shoppClassify">
               <div :class="{'bianse':footerCls[1]}"  @touchstart="changeCls(1)">
                   <i class="el-icon-menu"></i>
                   <span>分类</span>
@@ -20,7 +20,7 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/gouwuche">
+              <router-link to="/shoppingCar">
               <div :class="{'bianse':footerCls[2]}"  @touchstart="changeCls(2)">
                   <i class="el-icon-shopping-cart-1 mac"></i>
                   <span class="spanhh">购物车</span>

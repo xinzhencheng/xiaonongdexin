@@ -4,8 +4,8 @@
 <<<<<<< HEAD
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-02 14:26:45
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 18:07:28
  * @Description: file content
  */
 import Vue from 'vue'
@@ -14,29 +14,7 @@ import Index from '@/pages/Index'
 import xiangqingye from '@/pages/xiangqingye'
 import MinePage from '@/pages/MinePage'
 
-=======
- * @Author: 马川
- * @Date: 2019-11-23 12:08:12
- * @LastEditors: 马川
- * @LastEditTime: 2019-11-29 21:38:22
-=======
- * @Author: 安菲
- * @Date: 2019-11-25 20:05:01
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-04 10:21:18
->>>>>>> anfei
-=======
- * @Author: 邹中兴
- * @Date: 2019-11-25 20:48:36
- * @LastEditors: 张腾
- * @LastEditTime: 2019-12-04 15:52:02
->>>>>>> zhangteng
- * @Description: 
- */
-import Vue from 'vue'
-import Router from 'vue-router'
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import Login from '@/pages/Login'
 import Zhuce from '@/pages/Zhuce'
 import Wangji from '@/pages/Wangji'
@@ -45,32 +23,31 @@ import xitongshezhi from '@/pages/xitongshezhi'
 import grxx from '@/pages/grxx'
 import xiuganmima from '@/pages/xiuganmima'
 import xiugaishouji from '@/pages/xiugaishouji'
->>>>>>> mac
-=======
+
 import ShoppingCar from '@/pages/ShoppingCar'
 import NewAddress from '@/pages/NewAddress'
 import Open from '@/pages/Open'
 import Open2 from '@/pages/Open2'
 import Vip from '@/pages/Vip'
 
->>>>>>> anfei
-=======
-import shoppClassify from '@/pags/shoppClassify'
-import shoucang from '@/pags/shoucang'
-import shouhuodizhi from '@/pags/shouhuodizhi'
-import myyinhangka from '@/pags/myyinhangka'
-import xinzengdizhi from '@/pags/xinzengdizhi'
-import xinzengyinhangka from '@/pags/xinzengyinhangka'
 
->>>>>>> zhangteng
+import shoppClassify from '@/pages/shoppClassify'
+import shoucang from '@/pages/shoucang'
+import shouhuodizhi from '@/pages/shouhuodizhi'
+import myyinhangka from '@/pages/myyinhangka'
+import xinzengyinhangka from '@/pages/xinzengyinhangka'
+
+
+import Squerendingdan from '@/pages/Squerendingdan'
+import Ssousuo from '@/pages/Ssousuo'
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
-<<<<<<< HEAD
+
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
       path: '/',
       name: 'Index',
       component: Index
@@ -89,7 +66,8 @@ export default new Router({
       path: '/MinePage',
       name: 'MinePage',
       component: MinePage
-=======
+    },
+    {
       path: '/Login',
       name: 'Login',
       component: Login
@@ -110,7 +88,7 @@ export default new Router({
       component: order,
     },
     {
-      path: '/',
+      path: '/xitongshezhi',
       name: 'xitongshezhi',
       component: xitongshezhi,
     },
@@ -128,9 +106,8 @@ export default new Router({
       path: '/xiugaishouji',
       name: 'xiugaishouji',
       component: xiugaishouji,
->>>>>>> mac
-=======
-      path: '/',
+
+      path: '/ShoppingCar',
       name: 'ShoppingCar',
       component: ShoppingCar
     },
@@ -153,35 +130,43 @@ export default new Router({
       path: '/Open2',
       name: 'Open2',
       component: Open2
->>>>>>> anfei
-    }
-=======
+    },
 //  
  {
-   path: '/',
+   path: '/shoppClassify',
    name: 'shoppClassify',
    component: shoppClassify
  },
-    // {
-    //   path: '/',
-    //   name: 'shoucang',
-    //   component: shoucang
-    // },
-//  {
-//    path: '/',
-//    name: 'shouhuodizhi',
-//    component: shouhuodizhi
-//  }
-// {
-//   path: '/',
-//   name: 'myyinhangka',
-//   component: myyinhangka
-// },
-// {
-//   path: '/xinzengyinhangka',
-//   name: 'xinzengyinhangka',
-//   component: xinzengyinhangka
-// }
->>>>>>> zhangteng
+    {
+      path: '/shoucang',
+      name: 'shoucang',
+      component: shoucang
+    },
+ {
+   path: '/shouhuodizhi',
+   name: 'shouhuodizhi',
+   component: shouhuodizhi
+ },
+{
+  path: '/myyinhangka',
+  name: 'myyinhangka',
+  component: myyinhangka
+},
+{
+  path: '/xinzengyinhangka',
+  name: 'xinzengyinhangka',
+  component: xinzengyinhangka
+},
+{
+  path: '/Squerendingdan',
+  name: 'Squerendingdan',
+  component: Squerendingdan
+},
+{
+  path: '/Ssousuo',
+  name: 'Ssousuo',
+  component: Ssousuo
+}
+
   ]
 })

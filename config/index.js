@@ -1,19 +1,19 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+// <<<<<<< HEAD
+// <<<<<<< HEAD
+// <<<<<<< HEAD
+// =======
 /*
  * @Author: 马川
  * @Date: 2019-11-23 12:03:56
  * @LastEditors: 马川
- * @LastEditTime: 2019-11-29 17:25:27
+ * @LastEditTime: 2019-12-04 16:42:26
  * @Description: 
  */
->>>>>>> mac
-=======
->>>>>>> anfei
-=======
->>>>>>> zhangteng
+// >>>>>>> mac
+// =======
+// >>>>>>> anfei
+// =======
+// >>>>>>> zhangteng
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -26,11 +26,8 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    proxyTable: {},
-=======
+    // proxyTable: {},
+// =======
     proxyTable: {
       // '/api': {
       //   target: 'http://localhost:3000',
@@ -40,13 +37,13 @@ module.exports = {
       //   }
       // }
     },
->>>>>>> mac
-=======
-    proxyTable: {},
->>>>>>> anfei
-=======
-    proxyTable: {},
->>>>>>> zhangteng
+// >>>>>>> mac
+// =======
+    // proxyTable: {},
+// >>>>>>> anfei
+// =======
+    // proxyTable: {},
+// >>>>>>> zhangteng
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
