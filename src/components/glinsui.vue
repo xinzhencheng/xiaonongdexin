@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-28 14:33:28
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-28 16:57:37
+ * @LastEditTime: 2019-12-04 10:36:20
  * @Description: 
  -->
 <template>
@@ -16,12 +16,12 @@
         <div class="boxx3">
             <img src="../assets/img/gonggaotu.png" alt="">
             |
-            <span>
+            <span class="lili">
                 推荐好友即可享受1.1元购平台活动商品
             </span>
-            |
+            
              <span class="span2">
-                 更多
+                | 更多
              </span>
         </div>
         <div class="boxx4">
@@ -57,12 +57,17 @@
     .boxx3{
         width: 94%;
         padding-left: 3%;
-        span{
+        .lili{
             font-size: 14px;
+            display: inline-block;
+            width: 70%;
+        }
+        .span2{
+            float: right;
         }
         img{
-            width: .56rem;
-            height: .14rem;
+            width: 16%;
+            height: .16rem;
         }
     }
     .boxx4{
