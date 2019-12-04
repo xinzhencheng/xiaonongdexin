@@ -2,14 +2,22 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
  * @LastEditors: 郭涛
  * @LastEditTime: 2019-12-02 14:26:45
+=======
+ * @Author: 司娟
+ * @Date: 2019-11-26 16:38:52
+ * @LastEditors: 司娟
+ * @LastEditTime: 2019-12-03 11:01:36
+>>>>>>> sijuan
  * @Description: file content
  */
 import Vue from 'vue'
 import Router from 'vue-router'
+<<<<<<< HEAD
 import Index from '@/pages/Index'
 import xiangqingye from '@/pages/xiangqingye'
 import MinePage from '@/pages/MinePage'
@@ -63,10 +71,16 @@ import xinzengdizhi from '@/pags/xinzengdizhi'
 import xinzengyinhangka from '@/pags/xinzengyinhangka'
 
 >>>>>>> zhangteng
+=======
+import Squerendingdan from '@/pages/Squerendingdan'
+import Ssousuo from '@/pages/Ssousuo'
+
+>>>>>>> sijuan
 Vue.use(Router)
 
 export default new Router({
   routes: [
+<<<<<<< HEAD
 <<<<<<< HEAD
     {
 <<<<<<< HEAD
@@ -183,5 +197,17 @@ export default new Router({
 //   component: xinzengyinhangka
 // }
 >>>>>>> zhangteng
+=======
+    {
+      path: '/Squerendingdan',
+      name: 'Squerendingdan',
+      component: Squerendingdan
+    },
+    {
+      path: '/Ssousuo',
+      name: 'Ssousuo',
+      component: Ssousuo
+    }
+>>>>>>> sijuan
   ]
 })

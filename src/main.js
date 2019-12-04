@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @Author: 郭涛
  * @Date: 2019-11-26 19:39:02
  * @LastEditors: 郭涛
@@ -25,10 +26,18 @@
  * @LastEditTime: 2019-12-04 10:56:57
 >>>>>>> zhangteng
  * @Description: 
+=======
+ * @Author: 司娟
+ * @Date: 2019-11-26 16:38:52
+ * @LastEditors: 司娟
+ * @LastEditTime: 2019-12-04 15:08:15
+ * @Description: file content
+>>>>>>> sijuan
  */
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import App from './App'
@@ -79,12 +88,24 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'; 
 Vue.use(ElementUI);
 >>>>>>> zhangteng
+=======
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+import App from './App.vue'
+// import App from './App'
+import router from './router'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+Vue.use(MintUI);
+>>>>>>> sijuan
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -97,6 +118,8 @@ new Vue({
 =======
   // store,
 >>>>>>> zhangteng
+=======
+>>>>>>> sijuan
   components: { App },
   template: '<App/>'
 })

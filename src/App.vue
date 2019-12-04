@@ -1,12 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<!--
+>>>>>>> sijuan
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
  * @LastEditors: 司娟
  * @LastEditTime: 2019-11-26 17:03:22
  * @Description: file content
+<<<<<<< HEAD
 =======
  * @Author: 马川
  * @Date: 2019-11-23 12:08:12
@@ -24,6 +29,9 @@
  -->
 =======
 >>>>>>> zhangteng
+=======
+ -->
+>>>>>>> sijuan
 <template>
   <div id="app">
     <router-view/>
@@ -40,6 +48,9 @@ export default {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> sijuan
 *{
   margin: 0;
   padding: 0;
@@ -62,6 +73,7 @@ a{
 em,i{
   font-style: normal;
 }
+<<<<<<< HEAD
 =======
 
     *{
@@ -123,4 +135,6 @@ em,i{
 
 
 >>>>>>> zhangteng
+=======
+>>>>>>> sijuan
 </style>

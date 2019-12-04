@@ -2,10 +2,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> sijuan
   "name": "xiaonongdexin",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "sijuan-gt <874835281@qq.com>",
+<<<<<<< HEAD
 =======
   "name": "mac",
   "version": "1.0.0",
@@ -24,6 +28,8 @@
   "description": "A Vue.js project",
   "author": "zhang <1033871819@qq.com>",
 >>>>>>> zhangteng
+=======
+>>>>>>> sijuan
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -31,6 +37,7 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
+<<<<<<< HEAD
     "build": "node build/build.js"
   },
   "dependencies": {
@@ -79,6 +86,22 @@
 =======
     "axios": "^0.19.0",
 >>>>>>> zhangteng
+=======
+    "build": "node build/build.js",
+    "server": "json-server shop.json"
+  },
+  "dependencies": {
+    "element-ui": "^2.12.0",
+    "mint-ui": "^2.2.13",
+    "node-sass": "^4.13.0",
+    "true-case-path": "^2.2.1",
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "axios": "^0.19.0",
+>>>>>>> sijuan
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-jest": "^21.0.2",
@@ -102,6 +125,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "has-unicode": "^2.0.1",
 =======
 >>>>>>> mac
@@ -112,6 +136,12 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
+=======
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.0.4",
+    "jest-serializer-vue": "^0.3.0",
+    "json-server": "^0.15.1",
+>>>>>>> sijuan
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.13.0",
@@ -125,14 +155,18 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> anfei
 =======
 >>>>>>> zhangteng
+=======
+>>>>>>> sijuan
     "sass-loader": "^7.0.3",
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     "style-loader": "^1.0.0",
@@ -146,6 +180,9 @@
 =======
     "style-loader": "^1.0.0",
 >>>>>>> zhangteng
+=======
+    "style-loader": "^1.0.0",
+>>>>>>> sijuan
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
     "vue-jest": "^1.0.2",
@@ -155,6 +192,7 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -169,6 +207,9 @@
 =======
     "webpack-merge": "^4.1.0"
 >>>>>>> zhangteng
+=======
+    "webpack-merge": "^4.1.0"
+>>>>>>> sijuan
   },
   "engines": {
     "node": ">= 6.0.0",
@@ -178,6 +219,7 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -207,4 +249,7 @@
 >>>>>>> anfei
 =======
 >>>>>>> zhangteng
+=======
+  ]
+>>>>>>> sijuan
 }

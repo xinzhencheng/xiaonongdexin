@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -24,6 +25,15 @@
  */
 =======
 >>>>>>> zhangteng
+=======
+/*
+ * @Author: 司娟
+ * @Date: 2019-11-26 16:38:52
+ * @LastEditors: 司娟
+ * @LastEditTime: 2019-11-26 16:58:12
+ * @Description: file content
+ */
+>>>>>>> sijuan
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -31,6 +41,9 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> sijuan
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -94,6 +107,7 @@ module.exports = {
       },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
@@ -110,6 +124,11 @@ module.exports = {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
 >>>>>>> anfei
+=======
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+>>>>>>> sijuan
       }
     ]
   },
@@ -126,6 +145,7 @@ module.exports = {
     child_process: 'empty'
   }
 }
+<<<<<<< HEAD
 =======
 function resolve(dir) {
 	return path.join(__dirname, '..', dir)
@@ -205,3 +225,5 @@ module.exports = {
 	}
 }
 >>>>>>> zhangteng
+=======
+>>>>>>> sijuan
