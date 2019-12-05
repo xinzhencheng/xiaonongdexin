@@ -2,7 +2,7 @@
  * @Author: 张腾
  * @Date: 2019-12-02 09:47:47
  * @LastEditors: 张腾
- * @LastEditTime: 2019-12-04 15:44:44
+ * @LastEditTime: 2019-12-05 09:22:18
  * @Description: 
  -->
 <template>
@@ -22,7 +22,7 @@
       <button
         style="float:right;outline: none;background:green;
       border: none;"
-        @click="open()"
+        @click="open(yinhangkaxinxi.id)"
       >删除银行卡</button>
     </div>
     <div class="buttonAdd">
@@ -43,7 +43,9 @@ import axios from "axios";
 import { MessageBox } from "mint-ui";
 export default {
   data() {
-    return { yinhangkaxinxi: [], };
+    return { 
+      yinhangkaxinxi: []
+      }
   },
   created() {
     axios({
@@ -62,12 +64,13 @@ export default {
       MessageBox.confirm("确定删除?").then(action => {
         axios({
           method: "delete",
-          url: "http://localhost:3000/yinhangka/?id="+this.yinhangka.id //直接写ID即可
-         
-        }).then(data => {
-          console.log(data); 
-          console.log("删除成功")
-        });
+          url: "http://localhost:3000/yinhangka/"+id
+        })
+        .then(data => {
+          this.$router.go(0)
+          // location.reload()
+        })
+        
       });
     }
   }
@@ -85,7 +88,7 @@ export default {
   width: 85%;
   border-radius: 3px;
   font-size: 16px;
-  -webkit-user-select: none;
+  // -webkit-user-select: none;
   overflow: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -117,7 +120,7 @@ export default {
   width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  // appearance: none;
   outline: none;
 }
 .mint-msgbox-errormsg {

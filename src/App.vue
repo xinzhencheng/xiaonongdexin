@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -13,25 +14,24 @@
  * @Description: file content
 <<<<<<< HEAD
 =======
- * @Author: 马川
- * @Date: 2019-11-23 12:08:12
- * @LastEditors: 马川
- * @LastEditTime: 2019-12-02 09:18:22
- * @Description: 
->>>>>>> mac
 =======
- * @Author: 安菲
- * @Date: 2019-11-25 20:05:01
- * @LastEditors: 安菲
- * @LastEditTime: 2019-11-26 21:53:29
+<!--
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
+ * @Author: 马川
+ * @Date: 2019-12-04 16:12:57
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 17:38:39
  * @Description: 
->>>>>>> anfei
  -->
+<<<<<<< HEAD
 =======
 >>>>>>> zhangteng
 =======
  -->
 >>>>>>> sijuan
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 <template>
   <div id="app">
     <router-view/>
@@ -49,8 +49,11 @@ export default {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> sijuan
+=======
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 *{
   margin: 0;
   padding: 0;
@@ -73,6 +76,7 @@ a{
 em,i{
   font-style: normal;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -137,4 +141,7 @@ em,i{
 >>>>>>> zhangteng
 =======
 >>>>>>> sijuan
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 </style>

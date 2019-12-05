@@ -1,8 +1,8 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-12-02 15:49:27
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-02 19:12:28
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 19:09:42
  * @Description: 
  -->
 <template>
@@ -10,7 +10,9 @@
         <div class="box">
             <span class="span1">我的订单</span>
             <img src="../assets/img/ic_more_gray.png" alt="" class="img1">
-            <span class="span2">查看全部订单</span>
+            
+                <span class="span2"><router-link to="/order">查看全部订单</router-link></span>
+            
         </div>
         <div class="bootom">
             <div class="d1">

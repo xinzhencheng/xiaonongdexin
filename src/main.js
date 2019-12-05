@@ -5,8 +5,8 @@
 <<<<<<< HEAD
  * @Author: 郭涛
  * @Date: 2019-11-26 19:39:02
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-29 16:38:38
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 17:37:29
 =======
  * @Author: 马川
  * @Date: 2019-11-23 12:08:12
@@ -40,53 +40,29 @@ import Vue from 'vue'
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 import App from './App'
 import router from './router'
-<<<<<<< HEAD
-import store from './store'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import axios from 'axios';
 
-Vue.use(ElementUI);
-Vue.use(router);
-axios.defaults.baseURL = '/api/'
-=======
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
-Vue.use(MintUI);
-Vue.use(ElementUI);
->>>>>>> mac
-=======
-import Vuex from 'vuex'
+import VueX from 'vueX'
 import store from './store'
-import App from './App'
-import router from './router'
-import ElementUI from 'element-ui'; 
-import 'element-ui/lib/theme-chalk/index.css'; 
-import MintUI from 'mint-ui'; 
-import 'mint-ui/lib/style.css'; 
 
-
-Vue.use(ElementUI);
-Vue.use(MintUI);
-Vue.use(Vuex);
-
->>>>>>> anfei
-=======
-import App from './App'
-import router from './router'
-import vuex from 'vuex'
 import axios from 'axios'
-// import store from 'store'
-import MintUI from 'mint-ui' 
-import 'mint-ui/lib/style.css' 
-Vue.use(MintUI)
-import ElementUI from 'element-ui'; 
-import 'element-ui/lib/theme-chalk/index.css'; 
+// import store from 'store' 
+
+
+Vue.use(router);
+axios.defaults.baseURL = '/api/'
+Vue.use(MintUI);
 Vue.use(ElementUI);
+<<<<<<< HEAD
 >>>>>>> zhangteng
 =======
 import MintUI from 'mint-ui'
@@ -100,11 +76,16 @@ Vue.use(ElementUI);
 Vue.use(MintUI);
 >>>>>>> sijuan
 Vue.config.productionTip = false
+=======
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 
+Vue.use(VueX);
+Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -120,6 +101,13 @@ new Vue({
 >>>>>>> zhangteng
 =======
 >>>>>>> sijuan
+=======
+
+  store,
+
+
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
   components: { App },
   template: '<App/>'
 })

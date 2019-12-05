@@ -1,12 +1,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 /*
 <<<<<<< HEAD
 <<<<<<< HEAD
  * @Author: 司娟
  * @Date: 2019-11-26 16:38:52
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-27 19:06:56
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 17:06:49
  * @Description: file content
 =======
  * @Author: 马川
@@ -23,6 +27,7 @@
  * @Description: 
 >>>>>>> anfei
  */
+<<<<<<< HEAD
 =======
 >>>>>>> zhangteng
 =======
@@ -34,6 +39,9 @@
  * @Description: file content
  */
 >>>>>>> sijuan
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -42,8 +50,12 @@ const vueLoaderConfig = require('./vue-loader.conf')
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> sijuan
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -108,27 +120,36 @@ module.exports = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
-=======
+      },
+
       { 
         test: /\.scss$/, 
         loaders: ["style", "css", "sass"] 
->>>>>>> mac
-=======
+      },
       { test: /\.scss$/, 
         loaders: ["style", "css", "sass"] 
       },
       {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
+<<<<<<< HEAD
 >>>>>>> anfei
 =======
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
 >>>>>>> sijuan
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
       }
     ]
   },
@@ -146,7 +167,11 @@ module.exports = {
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 function resolve(dir) {
 	return path.join(__dirname, '..', dir)
 }
@@ -224,6 +249,10 @@ module.exports = {
 		child_process: 'empty'
 	}
 }
+<<<<<<< HEAD
 >>>>>>> zhangteng
 =======
 >>>>>>> sijuan
+=======
+
+>>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97

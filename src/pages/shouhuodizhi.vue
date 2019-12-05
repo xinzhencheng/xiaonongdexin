@@ -1,20 +1,22 @@
 <!--
  * @Author: 张腾
  * @Date: 2019-12-02 09:47:47
- * @LastEditors: 张腾
- * @LastEditTime: 2019-12-02 17:27:02
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 19:24:23
  * @Description: 
  -->
 <template>
   <div>
     <header>
-      <img src="../assets/ic_back.png" /> 收获地址
+      <img src="../assets/ic_back.png"  @click="back()"/> 收获地址
     </header>
 
     <div class="buttonAdd">
       <div>
         <button>
-          <span class="el-icon-circle-plus-outline"></span> 新增地址
+          <router-link to='/NewAddress'> 
+            <span class="el-icon-circle-plus-outline"></span> 新增地址
+          </router-link>
         </button>
       </div>
     </div>
@@ -22,6 +24,21 @@
 </template>
 
 <script>
+
+
+export default {
+  name: 'Mlogintop',
+  data () {
+    return {
+      
+    }
+  },
+  methods:{
+    back(){
+      this.$router.go(-1);
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

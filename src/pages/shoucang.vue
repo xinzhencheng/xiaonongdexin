@@ -1,15 +1,15 @@
 <!--
  * @Author: 张腾
  * @Date: 2019-11-29 15:15:20
- * @LastEditors: 张腾
- * @LastEditTime: 2019-12-02 17:30:37
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 19:26:36
  * @Description: 
  -->
 
 <template>
 	<div>
 		<header>
-			<img src="../assets/ic_back.png" /> 我的收藏
+			<img src="../assets/ic_back.png"   @click="back()"/> 我的收藏
 		</header>
 		<el-tabs v-model="activeName" @tab-click="handleClick">
 			<el-tab-pane label="收藏商品" name="second">
@@ -84,6 +84,9 @@
 				});
 		},
 		methods: {
+			back(){
+      this.$router.go(-1);
+    },
 			handleClick(tab, event) {
 //				console.log(tab, event);
 			}

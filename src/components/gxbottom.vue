@@ -1,8 +1,8 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-11-30 16:00:04
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-02 11:20:12
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 19:30:47
  * @Description: 
  -->
 <template>
@@ -16,8 +16,10 @@
             <span>收藏</span>
         </div>
         <div class="left">
-            <img src="../assets/img/ic_detail_shopcart.png" alt="">
-            <span>购物车</span>
+            <router-link to='/Squerendingdan'>
+                <img src="../assets/img/ic_detail_shopcart.png" alt="">
+                <span>购物车</span>
+            </router-link>
         </div>
         <input type="button" value="立即购买" class="right1">
         <input type="button" value="加入购物车" class="right2">
