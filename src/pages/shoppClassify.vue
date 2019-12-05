@@ -1,8 +1,8 @@
 <!--
  * @Author: 张腾
  * @Date: 2019-11-26 10:19:58
- * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 17:53:55
+ * @LastEditors: 张腾
+ * @LastEditTime: 2019-12-05 09:32:26
  * @Description: 
  -->
 
@@ -79,9 +79,99 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="鲜蛋肉禽" class="shuiguo uls">角色管理</el-tab-pane>
-        <el-tab-pane label="粮油调味" class="shuiguo uls">定时任务补偿</el-tab-pane>
-        <el-tab-pane label="粮油调味" class="shuiguo uls">定时任务补偿</el-tab-pane>
+        <el-tab-pane label="鲜蛋肉禽" class="shuiguo uls"> <ul class="ul01">
+            <li @click="changeshucai">全部</li>
+            <li
+              v-for="(shucaisort,index) in shucaisort"
+              :key="index"
+              @click="changeshucaitype(shucaisort.type)"
+            >{{shucaisort.name}}</li>
+            <img src="../assets/ic_arrow_down.png" />
+          </ul>
+
+          <ul class="ul02">
+            <li>综合</li>
+            <li>价格</li>
+            <li>销量</li>
+          </ul>
+          <div class="liebiao" v-for="(shucaixinxi,index) in shucaixinxi" :key="index">
+            <div class="imgs">
+              <img :src="shucaixinxi.img01" />
+            </div>
+            <div class="lbright">
+              <h1>{{shucaixinxi.name}}</h1>
+              <h2>{{shucaixinxi.guige}}</h2>
+              <div class="lbrP">
+                <p>{{shucaixinxi.istuijian}}</p>
+                <p>{{shucaixinxi.ishaohuo}}</p>
+                <p>{{shucaixinxi.isbaoyou}}</p>
+              </div>
+              <h3>￥{{shucaixinxi.price}}.0</h3>
+              <img :src="shucaixinxi.img02" />
+            </div>
+          </div></el-tab-pane>
+        <el-tab-pane label="粮油调味" class="shuiguo uls"> <ul class="ul01">
+            <li @click="changeshucai">全部</li>
+            <li
+              v-for="(shucaisort,index) in shucaisort"
+              :key="index"
+              @click="changeshucaitype(shucaisort.type)"
+            >{{shucaisort.name}}</li>
+            <img src="../assets/ic_arrow_down.png" />
+          </ul>
+
+          <ul class="ul02">
+            <li>综合</li>
+            <li>价格</li>
+            <li>销量</li>
+          </ul>
+          <div class="liebiao" v-for="(shucaixinxi,index) in shucaixinxi" :key="index">
+            <div class="imgs">
+              <img :src="shucaixinxi.img01" />
+            </div>
+            <div class="lbright">
+              <h1>{{shucaixinxi.name}}</h1>
+              <h2>{{shucaixinxi.guige}}</h2>
+              <div class="lbrP">
+                <p>{{shucaixinxi.istuijian}}</p>
+                <p>{{shucaixinxi.ishaohuo}}</p>
+                <p>{{shucaixinxi.isbaoyou}}</p>
+              </div>
+              <h3>￥{{shucaixinxi.price}}.0</h3>
+              <img :src="shucaixinxi.img02" />
+            </div>
+          </div></el-tab-pane>
+        <el-tab-pane label="粮油调味" class="shuiguo uls"> <ul class="ul01">
+            <li @click="changeshucai">全部</li>
+            <li
+              v-for="(shucaisort,index) in shucaisort"
+              :key="index"
+              @click="changeshucaitype(shucaisort.type)"
+            >{{shucaisort.name}}</li>
+            <img src="../assets/ic_arrow_down.png" />
+          </ul>
+
+          <ul class="ul02">
+            <li>综合</li>
+            <li>价格</li>
+            <li>销量</li>
+          </ul>
+          <div class="liebiao" v-for="(shucaixinxi,index) in shucaixinxi" :key="index">
+            <div class="imgs">
+              <img :src="shucaixinxi.img01" />
+            </div>
+            <div class="lbright">
+              <h1>{{shucaixinxi.name}}</h1>
+              <h2>{{shucaixinxi.guige}}</h2>
+              <div class="lbrP">
+                <p>{{shucaixinxi.istuijian}}</p>
+                <p>{{shucaixinxi.ishaohuo}}</p>
+                <p>{{shucaixinxi.isbaoyou}}</p>
+              </div>
+              <h3>￥{{shucaixinxi.price}}.0</h3>
+              <img :src="shucaixinxi.img02" />
+            </div>
+          </div></el-tab-pane>
       </el-tabs>
     </div>
 

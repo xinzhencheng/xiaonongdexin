@@ -1,8 +1,8 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-11-26 19:48:02
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-02 11:48:24
+ * @LastEditors: 张腾
+ * @LastEditTime: 2019-12-05 09:59:12
  * @Description: 
  -->
 <template>
@@ -39,9 +39,10 @@ export default {
       }
     },
     created(){
-        axios.get('http://localhost:3000/xbannerimg')
+        axios.get('http://localhost:3000/huiyuanzunxiangs')
         .then(res=>{
-            this.imgs = res.data;
+            this.imgs = res.data[0].xbannerimg;
+            console.log(this.imgs+`------------------`)
             this.$nextTick(function () {
                 let mySwiper = new Swiper ('.swiper-container', {})        
             });

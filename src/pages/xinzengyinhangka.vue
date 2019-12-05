@@ -1,8 +1,8 @@
 <!--
  * @Author: 张腾
  * @Date: 2019-12-02 14:28:25
- * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 17:32:18
+ * @LastEditors: 张腾
+ * @LastEditTime: 2019-12-05 09:24:13
  * @Description: 
  -->
 
@@ -63,14 +63,7 @@ export default {
     },
 
     func() {
-      if (
-        this.suoshuxinhang != "" &&
-        this.yinhangka != "" &&
-        this.name != "" &&
-        this.idCar != "" &&
-        this.kahao != "" &&
-        this.shuoji != ""
-      ) {
+      
         axios({
           method: "post",
           url: "http://localhost:3000/yinhangka",
@@ -88,15 +81,14 @@ export default {
         });
         setTimeout(() => {
           Toast("添加成功");
-          this.$router.push("/xinzengyinhangka");
-        }, 1100);
-      } else {
-
+          
+        }, 500);
          setTimeout(() => {
-          Toast("添加失败，信息必须全部填写");
-         
+          
+            this.$router.go(-1);
         }, 1100);
-      }
+
+      
     }
   }
 };
