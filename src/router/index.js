@@ -1,28 +1,6 @@
-/*
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @Author: 司娟
- * @Date: 2019-11-26 16:38:52
-<<<<<<< HEAD
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-02 14:26:45
-=======
- * @Author: 司娟
- * @Date: 2019-11-26 16:38:52
- * @LastEditors: 司娟
- * @LastEditTime: 2019-12-03 11:01:36
->>>>>>> sijuan
-=======
- * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 18:07:28
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
- * @Description: file content
- */
+
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
 import Index from '@/pages/Index'
 import xiangqingye from '@/pages/xiangqingye'
 import MinePage from '@/pages/MinePage'
@@ -44,14 +22,6 @@ import Open2 from '@/pages/Open2'
 import Vip from '@/pages/Vip'
 
 
-<<<<<<< HEAD
->>>>>>> zhangteng
-=======
-import Squerendingdan from '@/pages/Squerendingdan'
-import Ssousuo from '@/pages/Ssousuo'
-
->>>>>>> sijuan
-=======
 import shoppClassify from '@/pages/shoppClassify'
 import shoucang from '@/pages/shoucang'
 import shouhuodizhi from '@/pages/shouhuodizhi'
@@ -62,17 +32,11 @@ import xinzengyinhangka from '@/pages/xinzengyinhangka'
 import Squerendingdan from '@/pages/Squerendingdan'
 import Ssousuo from '@/pages/Ssousuo'
 
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 Vue.use(Router)
 
 export default new Router({
   routes: [
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
     {
 
       path: '/',
@@ -164,41 +128,6 @@ export default new Router({
    name: 'shoppClassify',
    component: shoppClassify
  },
-<<<<<<< HEAD
-    // {
-    //   path: '/',
-    //   name: 'shoucang',
-    //   component: shoucang
-    // },
-//  {
-//    path: '/',
-//    name: 'shouhuodizhi',
-//    component: shouhuodizhi
-//  }
-// {
-//   path: '/',
-//   name: 'myyinhangka',
-//   component: myyinhangka
-// },
-// {
-//   path: '/xinzengyinhangka',
-//   name: 'xinzengyinhangka',
-//   component: xinzengyinhangka
-// }
->>>>>>> zhangteng
-=======
-    {
-      path: '/Squerendingdan',
-      name: 'Squerendingdan',
-      component: Squerendingdan
-    },
-    {
-      path: '/Ssousuo',
-      name: 'Ssousuo',
-      component: Ssousuo
-    }
->>>>>>> sijuan
-=======
     {
       path: '/shoucang',
       name: 'shoucang',
@@ -230,6 +159,5 @@ export default new Router({
   component: Ssousuo
 }
 
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
   ]
 })

@@ -1,37 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-// <<<<<<< HEAD
-// <<<<<<< HEAD
-// <<<<<<< HEAD
-// =======
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 /*
  * @Author: 马川
- * @Date: 2019-11-23 12:03:56
+ * @Date: 2019-12-04 19:36:54
  * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 16:42:26
+ * @LastEditTime: 2019-12-05 14:31:23
  * @Description: 
  */
-<<<<<<< HEAD
->>>>>>> mac
-=======
->>>>>>> anfei
-=======
->>>>>>> zhangteng
-=======
->>>>>>> sijuan
-=======
-// >>>>>>> mac
-// =======
-// >>>>>>> anfei
-// =======
-// >>>>>>> zhangteng
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
+
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -44,38 +18,9 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     proxyTable: {},
-=======
-=======
-    // proxyTable: {},
-// =======
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
-    proxyTable: {
-      // '/api': {
-      //   target: 'http://localhost:3000',
-      //   changeOrigin: true,
-      //   pathRewrite: {
-      //    	 '^/api': ''
-      //   }
-      // }
-    },
-<<<<<<< HEAD
->>>>>>> mac
-=======
-    proxyTable: {},
->>>>>>> anfei
-=======
-    proxyTable: {},
->>>>>>> zhangteng
-=======
-    proxyTable: {},
->>>>>>> sijuan
-=======
+
 // >>>>>>> mac
 // =======
     // proxyTable: {},
@@ -83,7 +28,6 @@ module.exports = {
 // =======
     // proxyTable: {},
 // >>>>>>> zhangteng
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

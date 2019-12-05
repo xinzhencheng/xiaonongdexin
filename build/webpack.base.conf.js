@@ -1,61 +1,12 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
-/*
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @Author: 司娟
- * @Date: 2019-11-26 16:38:52
- * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 17:06:49
- * @Description: file content
-=======
- * @Author: 马川
- * @Date: 2019-11-23 12:03:56
- * @LastEditors: 马川
- * @LastEditTime: 2019-11-26 21:30:55
- * @Description: 
->>>>>>> mac
-=======
- * @Author: 安菲
- * @Date: 2019-11-25 20:02:28
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-04 10:18:03
- * @Description: 
->>>>>>> anfei
- */
-<<<<<<< HEAD
-=======
->>>>>>> zhangteng
-=======
-/*
- * @Author: 司娟
- * @Date: 2019-11-26 16:38:52
- * @LastEditors: 司娟
- * @LastEditTime: 2019-11-26 16:58:12
- * @Description: file content
- */
->>>>>>> sijuan
-=======
-
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
 'use strict'
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> sijuan
-=======
 
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -117,14 +68,7 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
-
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
@@ -140,16 +84,13 @@ module.exports = {
       {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
-<<<<<<< HEAD
->>>>>>> anfei
-=======
+      },
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
->>>>>>> sijuan
-=======
 
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
+
+
       }
     ]
   },
@@ -166,12 +107,8 @@ module.exports = {
     child_process: 'empty'
   }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
 
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
+
 function resolve(dir) {
 	return path.join(__dirname, '..', dir)
 }
@@ -249,10 +186,4 @@ module.exports = {
 		child_process: 'empty'
 	}
 }
-<<<<<<< HEAD
->>>>>>> zhangteng
-=======
->>>>>>> sijuan
-=======
 
->>>>>>> e78b967c503d525e1c80e2d05fc760fa025b2c97
