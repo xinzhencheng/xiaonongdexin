@@ -2,7 +2,7 @@
  * @Author: 司娟
  * @Date: 2019-11-28 14:31:02
  * @LastEditors: 司娟
- * @LastEditTime: 2019-12-04 14:56:49
+ * @LastEditTime: 2019-12-04 19:54:16
  * @Description: file content
  -->
 <template>
@@ -19,24 +19,17 @@
             <span>地区<img src="../assets/img/ic_down_arrow.png" alt=""></span>
         </div> 
     </div>
-    <div class="content">
-        <Sliebiao></Sliebiao>
-    </div>  
   </div>
 </template>
 
 <script>
 
-import Sliebiao from './Sliebiao';
 export default {
   name: 'Back',
   data () {
     return {
         Search:"", 
     }
-  },
-  components:{
-      Sliebiao
   },
   methods:{
       back(){
@@ -95,10 +88,6 @@ export default {
                 }
             }
         }
-    }
-    .content{
-        width: 100%;
-        min-height:5.05rem; 
     }
 }
 
