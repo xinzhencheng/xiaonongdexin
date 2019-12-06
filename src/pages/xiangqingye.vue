@@ -2,17 +2,17 @@
  * @Author: 郭涛
  * @Date: 2019-11-29 17:46:24
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-02 11:43:00
+ * @LastEditTime: 2019-12-05 21:04:34
  * @Description: 
  -->
 <template>
   <div class="box">
     <gxherder></gxherder>
-    <gxlunbo></gxlunbo>
-    <gxxinxi></gxxinxi>
+    <gxlunbo :id="id"></gxlunbo>
+    <gxxinxi :id="id"></gxxinxi>
     <gxyouxuan></gxyouxuan>
     <gxpingjia></gxpingjia>
-    <gxxiangqing></gxxiangqing>
+    <gxxiangqing :id="id"></gxxiangqing>
     <gxbottom></gxbottom>
   </div>
 </template>
@@ -28,11 +28,13 @@ import gxbottom from '../components/gxbottom';
 
 export default {
   name: 'Squerendingdan',
+  props:['id'],
   data () {
     return {
       
     }
   },
+
   components:{
      gxherder,gxlunbo,gxxinxi,gxyouxuan,gxpingjia,gxxiangqing,gxbottom
   }

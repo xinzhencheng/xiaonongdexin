@@ -1,8 +1,13 @@
 <!--
  * @Author: 司娟
  * @Date: 2019-11-29 14:43:15
+<<<<<<< HEAD
  * @LastEditors: 马川
  * @LastEditTime: 2019-12-05 19:40:04
+=======
+ * @LastEditors: 司娟
+ * @LastEditTime: 2019-12-05 14:29:35
+>>>>>>> 5cd7c282d9b92dad1a519f962780c30258d4a15c
  * @Description: file content
  -->
 <template>
@@ -47,6 +52,10 @@ export default {
     return {
         popupVisible:false,
         goodslists:[],
+<<<<<<< HEAD
+=======
+        // tiao:"",
+>>>>>>> 5cd7c282d9b92dad1a519f962780c30258d4a15c
         isshow:false,
         id:""
     }

@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-28 16:51:05
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-02 15:33:26
+ * @LastEditTime: 2019-12-05 15:39:41
  * @Description: 
  -->
 <template>
@@ -14,7 +14,7 @@
        </div>
        <div class="box2">
             <div class="qq"  v-for="(shangjia,index) in shangjias" :key="index">
-                <router-link to="/xiangqingye" class="router-link">
+                <router-link :to='"/xiangqingye/"+shangjia.id' class="router-link">
                 <div class="q1">
                     <img :src="shangjia.img1" alt="" class="img3">
                     <img :src="shangjia.img2" alt="" class="img4">

@@ -2,25 +2,48 @@
  * @Author: 郭涛
  * @Date: 2019-11-29 20:11:37
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-29 20:48:54
+ * @LastEditTime: 2019-12-05 17:46:30
  * @Description: 
  -->
 <template>
     <div id="box">
-        <span class="span1">￥<span class="sss1">25.00</span></span>
-        <span class="span2">&nbsp;小农推荐&nbsp;</span>
-        <span class="span3">已售76件</span>
+        <span class="span1">￥<span class="sss1">{{xinxi.jiaqian}}</span></span>
+        <span class="span2">&nbsp;{{xinxi.tiaojian1}}&nbsp;</span>
+        <span class="span3">已售{{xinxi.yishou}}件</span>
         <p class="p1">
-            香水柠檬（广西武鸣）
+            {{xinxi.biaoti}}
         </p>
         <p class="p2">
-            【1.5KG全国包邮】，香水柠檬，柠檬中的劳斯莱斯，无籽，果香浓郁，酸爽无比。
+            {{xinxi.neirong}}
         </p>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+export default {
+    name:"Search",
+    props:['id'],
+    data () {
+        return {
+            xinxi:[
 
+            ],
+            // mag:{}
+        }
+    },
+    methods:{    },
+    created(){
+        axios.get('http://localhost:3000/huiyuanzunxiangs/'+this.id)
+        .then(res=>{
+            this.xinxi = res.data;
+            console.log(res.data)
+        })
+        .catch(err=>{
+        console.log(err);
+        })
+    }
+}
 </script>
 
 <style scoped lang=scss>
