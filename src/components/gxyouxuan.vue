@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-29 20:11:37
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-11-30 17:41:50
+ * @LastEditTime: 2019-12-05 17:53:13
  * @Description: 
  -->
 <template>
@@ -29,7 +29,7 @@
         </div>
         <div class="yixuan">
             <b>已选</b>
-            <span>柠檬3斤每箱《全国包邮》</span>
+            <span>3斤每箱《全国包邮》,送运营险</span>
             <img src="../assets/img/dian.png" alt="">
         </div>
     </div>

@@ -2,55 +2,73 @@
  * @Author: 郭涛
  * @Date: 2019-11-30 16:00:04
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-03 12:07:09
+ * @LastEditTime: 2019-12-05 21:09:15
  * @Description: 
  -->
 <template>
     <div id="box">
-        <div  v-for="(gxxiangqing,index) in gxxiangqings" :key="index">
-            <img :src="gxxiangqing.img" alt="进店逛逛">
+        <div>
+            <img :src="mag.dianpuimg" alt="进店逛逛">
             <p id="xiangqing">————宝贝详情————</p>
-            <img :src="gxxiangqing.xxxx1" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx2" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx3" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx4" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx5" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx6" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx7" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx8" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx9" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx10" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx11" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx12" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx13" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx14" alt="详细介绍">
-            <img :src="gxxiangqing.xxxx15" alt="详细介绍">
+            <div  v-for="(xximg,index) in xximgs" :key="index"  >
+               <img :src="xximg.img" >
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {
-  name: 'top',
-  data () {
-    return {
-       gxxiangqings:[],
-    }
-  },
+// export default {
+//   name: 'top',
+//   data () {
+//     return {
+//        gxxiangqings:[],
+//     }
+//   },
    
-  created(){
-    fetch('http://localhost:3000/gxxiangqings')
-      .then(res=>{
-        return res.json();
-      })
-      .then(data=>{
-         this.gxxiangqings=data;
-         console.log(this.gxxiangqings)
-     })
-     .catch(err=>{
-       console.log(err);
-     })
-  }
+//   created(){
+//     fetch('http://localhost:3000/gxxiangqings')
+//       .then(res=>{
+//         return res.json();
+//       })
+//       .then(data=>{
+//          this.gxxiangqings=data;
+//          console.log(this.gxxiangqings)
+//      })
+//      .catch(err=>{
+//        console.log(err);
+//      })
+//   }
+// }
+import axios from 'axios';
+import Swiper from 'swiper';
+
+export default {
+    name:"Search",
+    props:['id'],
+    data () {
+        return {
+            xximgs:[
+
+            ],
+            mag:[]
+        }
+    },
+    methods:{
+     
+    },
+    created(){
+        axios.get('http://localhost:3000/huiyuanzunxiangs/'+this.id)
+        .then(res=>{
+            this.mag = res.data;
+            console.log(this.mag)
+            this.xximgs = res.data.gxxiangqings;
+            console.log(res.xximgs)
+        })
+        .catch(err=>{
+        console.log(err);
+        })
+    }
 }
 </script>
 

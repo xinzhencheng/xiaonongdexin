@@ -49,9 +49,10 @@ export default new Router({
       component: Index
     },
     {
-      path: '/xiangqingye',
+      path: '/xiangqingye/:id',
       name: 'xiangqingye',
-      component: xiangqingye
+      component: xiangqingye,
+      props:true
     },
     {
       path: '/MinePage',
