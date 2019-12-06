@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
  * @Author: 郭涛
  * @Date: 2019-11-30 16:00:04
@@ -5,6 +6,9 @@
  * @LastEditTime: 2019-12-06 14:17:23
  * @Description: 
  -->
+=======
+
+>>>>>>> 8acb55eb0697091702610fbb2c75be2928fcd713
 <template>
     <div id="box">
         <div class="left">
