@@ -1,14 +1,14 @@
 <!--
  * @Author: 司娟
  * @Date: 2019-11-26 10:25:43
- * @LastEditors: 司娟
- * @LastEditTime: 2019-11-27 21:14:14
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-05 16:20:08
  * @Description: file content
  -->
 <template>
   <div class="box">
-       <span class="heji">合计金额：</span>
-       <span class="money">￥111.10</span>
+       <span class="heji">共 {{xiaoji}} 商品  合计金额：</span>
+       <span class="money">￥{{zong}}</span>
        <em>提交订单</em>
   </div>
 </template>
@@ -18,7 +18,8 @@ export default {
   name: 'Sqbottom',
   data () {
     return {
-      
+      xiaoji:this.$store.state.jie1[2],
+      zong:this.$store.state.jie1[1]
     }
   },
   methods:{
@@ -38,10 +39,11 @@ export default {
   left: 0;
   z-index: 1;
   background: #ffffff;
+  display: flex;
   .heji{
       font-size: .15rem;
       color: #666666;
-      margin-left: 1.10rem;
+      margin-left: .7rem;
   }
   .money{
     color: #fc8600;

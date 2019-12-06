@@ -2,7 +2,7 @@
  * @Author: 安菲
  * @Date: 2019-11-28 19:53:51
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-03 11:05:26
+ * @LastEditTime: 2019-12-05 19:20:17
  * @Description: 
  -->
 <template>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <p>银行卡支付</p>
-    <router-link to="/">
+    <router-link to="/xinzengyinhangka">
         <div class="moren">
             <img src="../assets/imgs/ic_add_card.png" >
             +&nbsp;添加新卡

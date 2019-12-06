@@ -1,8 +1,8 @@
 <!--
  * @Author: 司娟
  * @Date: 2019-11-26 17:52:36
- * @LastEditors: 司娟
- * @LastEditTime: 2019-11-29 14:56:51
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-05 18:00:03
  * @Description: file content
  -->
 <template>
@@ -20,19 +20,19 @@
             <img src="../assets/img/ic_address_under.png" alt="">    
         </div>
         <ul>
-          <li class="both shop">
+          <li class="both shop" v-for="(shi,index) in shiwu[0]" :key="index">
             <div class="title">
               <i class="el-icon-s-shop"></i>
-              <span>内蒙巴盟</span>
+              <span>{{shi.shop}}</span>
             </div>
             <div class="tu">
-              <img src="../assets/img/pic1.jpg" alt="">
+              <img :src="shi.img" alt="">
               <div class="miao">
-                <p class="a1">农家石磨面粉</p>
-                <p class="a2">规格：农家石磨面粉/4.5kg</p>
+                <p class="a1">{{shi.name}}</p>
+                <p class="a2">规格：{{shi.weight}}</p>
                 <p class="price">
-                  <span>￥78.0</span>
-                  <em>x1</em>
+                  <span>￥{{shi.price}}</span>
+                  <em>x{{shi.count}}</em>
                 </p>
               </div>
             </div>
@@ -54,8 +54,8 @@
               <input type="text" placeholder="点击这里填写您对商家的留言">
             </div>
             <div class="b3">
-              <span>共1件商品 小计：</span>
-              <em>86.58</em>
+              <span>小计：</span>
+              <em>{{shi.price*shi.count}}</em>
             </div>
           </li>
         </ul>      
@@ -75,8 +75,21 @@ export default {
   name: 'Back',
   data () {
     return {
-      
+      shiwu:[],
+      num:0,
+      addprice:0
     }
+  },
+  created(){
+    this.shiwu=this.$store.state.jie1;
+    // let arr=this.shiwu[0];
+    // console.log(this.shi.count)
+    // for(let i=0;i<arr.length;i++){
+    //   let str=0;
+    //   console.log(arr.length)
+    //   // console.log(str);
+    // }
+    
   },
   methods:{
      
