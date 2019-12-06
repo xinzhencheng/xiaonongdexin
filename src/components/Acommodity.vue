@@ -1,8 +1,8 @@
 <!--
  * @Author: 安菲
  * @Date: 2019-11-26 10:16:18
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-04 14:51:11
+ * @LastEditors: 郭涛
+ * @LastEditTime: 2019-12-06 17:16:34
  * @Description: 
  -->
 <template>
@@ -47,7 +47,7 @@
         <div class="ADD">
             <div class="d">
                 <div class="check">
-                    <input type="checkbox" id="allCheckBox" v-model="allcheck" @click="allCheck()">
+                    <input type="checkbox" id="allCheckBox" v-model="allcheck" @click="allCheck">
                 </div> 
                 <span>全选</span> 
             </div>
@@ -55,11 +55,9 @@
                 <div class="a">
                     合计：<span id="addMoney">￥{{addMoney}}</span>
                 </div>
-                <router-link to="">
-                    <div class="commit" @click="toDo()">结算({{checkNum}})</div>
-                </router-link>
+                <div class="commit" @click="toDo">结算({{checkNum}})</div>
             </div>
-            <div class="delect" v-show="!isShow" @click="delGoods(foods.name)">
+            <div class="delect" v-show="!isShow" @click="delGoods">
                 删除({{checkNum}})
             </div>
         </div>
@@ -83,8 +81,9 @@ export default {
            checkNum:0,
            isShow:true,
            Text:"编辑",
-           checked:false
-        };
+           checked:false,
+           src:[],
+           zongjia:0        };
     },
     created(){
         axios.get('http://localhost:3000/foods')
@@ -112,6 +111,7 @@ export default {
                 }
             }
             this.allcheck=isAllCheck;
+            this.zongjia=Money;
             return Money;
         }
     },
@@ -119,7 +119,7 @@ export default {
       handleChange(value) {
       },
         allCheck(flag){
-          console.log(this.allCheck);
+        //   console.log(this.allCheck);
  
           console.log(event.target.checked);
           this.foods.forEach(item=>{
@@ -128,10 +128,9 @@ export default {
           }); 
           event.target.checked? this.checkNum = this.foods.length : this.checkNum = 0;
 
-          console.log(this.checkNum);
+        //   console.log(this.checkNum);
       },
       chang(){
-        //   v-show="isShow" 
             this.isShow=!this.isShow
             if(this.isShow){
                 this.Text="编辑"
@@ -143,7 +142,7 @@ export default {
             if(typeof food.checkNum=='undefined'){
                 food.checked=!food.checked;
                 food.checked?this.checkNum++:this.checkNum--;
-                console.log(this.checkNum);
+                // console.log(this.checkNum);
             }else{
                 this.$set(food,"checked",true);
                 
@@ -151,14 +150,20 @@ export default {
         },
         toDo(){
              if(this.checkNum>=1){
+                 for(let i=0;i<this.foods.length;i++){
+                     if(this.foods[i].isChecked){
+                         this.src.push(this.foods[i]);
+                     }
+                 }
+                 this.$store.commit("zou",[this.src,this.zongjia,this.checkNum])
                     setTimeout(()=>{
-                    this.$router.push({path:'/Vip'});//跳转结算页面
-                    },1000);     
+                    this.$router.push({path:'/Squerendingdan'});//跳转结算页面
+                    },1500);     
              }else{
                  Toast('请选择要结算的商品');
              }
         },
-        delGoods(name){
+        delGoods(){
             if(this.checkNum>=1){
                  MessageBox.confirm('',{
                     title:'',
@@ -168,21 +173,26 @@ export default {
                 }).then(action => {
                     if (action == 'confirm') {
                         console.log("-------")
-                        // 刷新类表
-                        axios.post({
-                            type:"delete",
-                            url:"http://localhost:3000/foods/"+this.name,
-                            dataType:"json",
-                            success:function(e){
-                                console.log(e, '请求成功')
-                            },
-                            error:function(e){
-                                console.log(e, '请求失败')
-                            }
-                        })
-                        // this.getfoods();
-                        // 取消全选
-                        this.checkAll(false);
+                         console.log(this.foods)
+                            for(let i=0;i<this.foods.length;i++){
+                                //   console.log(this.foods[0].id)
+                                if(this.foods[i].isChecked){
+                                    axios.delete('http://localhost:3000/foods/'+this.foods[i].id)
+                                    .then((res)=>{
+                                        console.log('删除成功')
+                                        this.checkNum=0;
+                                         axios.get('http://localhost:3000/foods')//商品列表
+                                        .then(res=>{
+                                            // console.log(res.data)
+                                            this.foods = res.data;
+                                        })
+                                        .catch(err=>{
+                                            console.log(err);
+                                        })
+                                    })
+                                    
+                                    }
+                                }
                     }
                 }).catch(error =>{});
             }else{

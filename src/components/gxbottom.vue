@@ -1,4 +1,10 @@
-
+<!--
+ * @Author: 郭涛
+ * @Date: 2019-11-30 16:00:04
+ * @LastEditors: 郭涛
+ * @LastEditTime: 2019-12-06 17:09:38
+ * @Description: 
+ -->
 <template>
     <div id="box">
         <div class="left">
@@ -18,7 +24,7 @@
         <input type="button" value="立即购买" class="right1" @click="goumai()">
         <input type="button" value="加入购物车" class="right2" @click="goumai()">
         <mt-popup v-if="isshow" v-model="popupVisible" position="bottom" class="show">
-            <Stanchuang :id="id"></Stanchuang>
+            <Stanchuang :id="id" @change="fun"></Stanchuang>
         </mt-popup>
     </div>
 </template>
@@ -34,7 +40,7 @@ export default {
     props:["id"],
   data () {
     return {
-          popupVisible:false,
+        popupVisible:false,
         goodslists:[],
         // tiao:"",
         isshow:false,
@@ -46,7 +52,7 @@ export default {
         goumai(id){
            this.popupVisible=true; 
             this.isshow=true;
-            this.id=id;
+            // this.id=id;
             console.log(this.id);
             // this.reload();
             // window.location.reload();

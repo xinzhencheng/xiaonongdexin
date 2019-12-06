@@ -1,8 +1,8 @@
 <!--
  * @Author: 安菲
  * @Date: 2019-11-28 19:53:51
- * @LastEditors: 安菲
- * @LastEditTime: 2019-11-28 21:11:50
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-06 16:30:07
  * @Description: 
  -->
 <template>
@@ -11,7 +11,7 @@
         <div class="content">
             <span>收件人</span>
             <p>
-                <input type="text" placeholder="请输入收件人姓名">
+                <input type="text" placeholder="请输入收件人姓名"  v-model="people">
             </p>
         </div>
         <div class="content two">
@@ -22,7 +22,7 @@
         <div class="content one">
             <span>联系电话</span>
             <p>
-                <input type="text" placeholder="请输入联系电话">
+                <input type="text" placeholder="请输入联系电话" v-model="phone">
             </p>
         </div>
     </div>
@@ -32,7 +32,7 @@
                  <span>所在地区</span>
              </div>
              <div class="right r">
-                 <div class="city" @click="toAddress">{{city}}</div>
+                 <div class="city" @click="toAddress" id="Area">{{city}}</div>
                  <i class="arrow-r"> </i>
              </div>
          </li>
@@ -42,7 +42,7 @@
         <div class="content one">
             <span>详细地址</span>
             <p>
-                <textarea placeholder="详细地址如道路、门牌号、小区、楼栋号、单元室等"> </textarea>
+                <textarea placeholder="详细地址如道路、门牌号、小区、楼栋号、单元室等" v-model="xiangxidizhi"> </textarea>
             </p>
         </div>
     </div>
@@ -54,12 +54,13 @@
         inactive-color="#c0c4cc">
         </el-switch>
     </div>
-    <div class="pass">
+    <div class="pass" @click="ADD">
         保存地址
     </div>
 </div>
 </template>
 <script>
+import axios from 'axios';
 import VDistpicker from 'v-distpicker'
 export default {
     components: { VDistpicker },
@@ -70,7 +71,10 @@ export default {
             value: true,
             city:'请选择',
             addInp :false,
-            mask:false
+            mask:false,
+            people:"",
+            phone:"",
+            xiangxidizhi:""
         }
     },
     methods:{
@@ -87,8 +91,31 @@ export default {
         this.mask =false;
         this.addInp = false;
         this.city = data.province.value + ' ' + data.city.value +' ' + data.area.value
-        }
-    }
+        },
+    ADD(){
+        
+			 fetch('http://localhost:3000/addresss',{
+               
+                method:"post",
+                 headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                      },
+           body:'people'+'='+this.people+'&'+'phone'+'='+this.phone+'&'+'sex'+'='+this.radio+'&'+'Area'+'='+this.city+'&'+'xiangxidizhi'+'='+this.xiangxidizhi
+                
+            })
+            .then(res=>{
+                return res.json();
+            })
+            .then(data=>{
+				 console.log(data)
+                if(data!=null){
+                    console.log("成功")
+                }else{
+                alert("添加失败");
+            }
+            })
+          }
+     }
 }
 </script>
 
@@ -171,6 +198,6 @@ export default {
     z-index: 11;
     background-color: #fff;
     position: absolute;
-    width:3.3rem;
+    width:3.4rem;
 }
 </style>

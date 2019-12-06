@@ -1,8 +1,8 @@
 /*
  * @Author: CoolWind
  * @Date: 2019-11-07 19:29:59
- * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 17:16:18
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-06 09:52:19
  * @Description: 
  */
 import Vue from 'vue'
@@ -18,7 +18,8 @@ export default new VueX.Store({
             false,
             false,
             false
-        ]
+        ],
+        jie1:[]
     },
     mutations: {//跟踪状态
         changeFooterCls(state,index){
@@ -30,6 +31,10 @@ export default new VueX.Store({
                 arr[index] = false;
             });
             state.footerCls[index] = true;
+        },
+        zou(state,jie){
+            state.jie1=jie;
+            console.log(state.jie1);
         }
     },
     actions: {//有异步请求，异步请求完成后，提交mutations
