@@ -2,7 +2,7 @@
  * @Author: 司娟
  * @Date: 2019-11-28 14:31:02
  * @LastEditors: 司娟
- * @LastEditTime: 2019-12-04 14:56:49
+ * @LastEditTime: 2019-12-06 11:55:30
  * @Description: file content
  -->
 <template>
@@ -10,37 +10,33 @@
     <div class="top">
         <div class="sousuo">
             <img src="../assets/img/ic_search.png" alt="">
-            <input type="text" placeholder="搜索">
+            <input type="text" v-model="input1" placeholder="搜索">
         </div>
         <div class="nav">
-            <span>综合</span>
-            <span>价格<img src="../assets/img/ic_choose_none.png" alt=""></span>
-            <span>销量</span>
-            <span>地区<img src="../assets/img/ic_down_arrow.png" alt=""></span>
+            <span @click="search">综合</span>
+            <span @click="search">价格<img src="../assets/img/ic_choose_none.png" alt=""></span>
+            <span @click="search">销量</span>
+            <span @click="search">地区<img src="../assets/img/ic_down_arrow.png" alt=""></span>
         </div> 
     </div>
-    <div class="content">
-        <Sliebiao></Sliebiao>
-    </div>  
   </div>
 </template>
 
 <script>
 
-import Sliebiao from './Sliebiao';
 export default {
   name: 'Back',
   data () {
     return {
-        Search:"", 
+        input1:"", 
     }
-  },
-  components:{
-      Sliebiao
   },
   methods:{
       back(){
           this.$router.go(-1);
+      },
+      search(){
+          this.$emit('changemsg',this.input1)
       }     
   }
 }
@@ -95,10 +91,6 @@ export default {
                 }
             }
         }
-    }
-    .content{
-        width: 100%;
-        min-height:5.05rem; 
     }
 }
 

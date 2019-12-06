@@ -2,11 +2,12 @@
  * @Author: 司娟
  * @Date: 2019-11-29 14:43:15
  * @LastEditors: 马川
- * @LastEditTime: 2019-12-06 15:27:21
+ * @LastEditTime: 2019-12-06 15:39:48
  * @Description: file content
  -->
 <template>
     <div class="box">
+        <div class="bdiv" v-show="isLogin">{{input}}</div>
         <ul class="box2">
             <li class="qq" v-for="(goodslist,index) in goodslists" :key="index">
                 <div class="q1">  
@@ -26,9 +27,9 @@
                 </div>
             </li>
         </ul>
-        <mt-popup v-if="isshow" v-model="popupVisible" position="bottom" class="show">
-            <Stanchuang :id="id" v-on:changemsg="func"></Stanchuang>
-        </mt-popup>
+        <mt-popup v-if="isshow" v-model="popupVisible" position="bottom" class="show"  lockScroll="true">
+            <Stanchuangq :id="id" @change="fun" ></Stanchuangq>
+        </mt-popup>       
     </div>    
 </template>
 
@@ -37,21 +38,40 @@ import Vue from 'vue';
 // import { Toast } from 'mint-ui';
 Vue.component(Popup.name, Popup);
 import { Popup } from 'mint-ui';
-import Stanchuang from './Stanchuang';
+import Stanchuangq from './Stanchuangq';
 
 import axios from 'axios';
 export default {
   name: 'Sliebiao',
-  inject:["reload"],
+//   inject:["reload"],
+  props:['input'],
   data () {
     return {
         popupVisible:false,
         goodslists:[],
-
         // tiao:"",
         isshow:false,
         id:""
     }
+  },
+  computed:{
+      isLogin(){
+           console.log(this.input);
+     //从后端获取数据  
+            axios.get('http://localhost:3000/rementuijies?q='+this.input.trim())
+            .then(res=>{ 
+                this.goodslists = res.data;
+            })
+            .catch(err=>{
+                console.log(err);
+            });      
+      }      
+  },
+  created(){
+     
+  },
+  beforeUpdate(){
+    //   console.log("数据更新了------------：");
   },
   methods:{
       show(id){
@@ -62,42 +82,29 @@ export default {
             // this.reload();
             // window.location.reload();
       },
-      func(zhi){
+      fun(zhi){
           this.isshow=zhi;
-      }
-    //    getBooksByType(data){//根据类型获取数据
-    //      var search = this.Search;
-    //        var len = this.goodslists.length;
-    //        if (!search) {
-    //             Toast({
-    //                 message: '搜索内容不能为空',
-    //                 position: 'bottom',
-    //                 duration: 5000
-    //             });
-    //         }
-    //         search = search.trim().toLowerCase();
-    //         this.shops = this.goodslists.filter(function(item) {
-    //             if (item.biaoti.toLowerCase().indexOf(search) != -1) {
-    //                 return item;
-    //             }
-    //         })
-    //  }
+      },
   },
   components:{
-     Stanchuang
+     Stanchuangq
   }
-   
+//   updated(){
+//         this.goodslists.length=0;
+//       }  
 }
 </script>
 
 <style scoped lang=scss>
 .box{
+    height: 100%;
+    overflow: auto;
     width: 94%;
     padding-left: 3%;
     padding-right: 3%;
     min-height: 5.05rem;
     background-color: #f9f9f9;
-    /* margin-top: 1.62rem; */
+    padding-top: 1.62rem;
     ul{
         width: 100%;
         li{ 
@@ -165,7 +172,9 @@ export default {
     }
     .show{
         width: 100%;
-        height:4rem;
+        /* max-height:4.5rem; */
+        /* min-height: 4rem; */
+        background: #ffffff;
         border-radius: .1rem;
     }
 }
