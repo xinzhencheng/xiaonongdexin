@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-26 19:48:02
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-05 17:37:09
+ * @LastEditTime: 2019-12-06 11:05:49
  * @Description: 
  -->
 <template>
@@ -41,7 +41,7 @@ export default {
       }
     },
     created(){
-        axios.get('http://localhost:3000/huiyuanzunxiangs/'+this.id)
+        axios.get('http://localhost:3000/rementuijies/'+this.id)
         .then(res=>{
             this.imgs = res.data.xbannerimg;
             // this.mag = this.imgs.xbannerimg

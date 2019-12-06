@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 <!--
  * @Author: 郭涛
  * @Date: 2019-11-30 16:00:04
  * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 19:30:47
+ * @LastEditTime: 2019-12-06 14:17:23
  * @Description: 
  -->
+=======
+
+>>>>>>> 8acb55eb0697091702610fbb2c75be2928fcd713
 <template>
     <div id="box">
         <div class="left">
@@ -16,18 +20,56 @@
             <span>收藏</span>
         </div>
         <div class="left">
-            <router-link to='/Squerendingdan'>
+            <router-link to='/shoppingCar'>
                 <img src="../assets/img/ic_detail_shopcart.png" alt="">
                 <span>购物车</span>
             </router-link>
         </div>
-        <input type="button" value="立即购买" class="right1">
-        <input type="button" value="加入购物车" class="right2">
+        <input type="button" value="立即购买" class="right1" @click="goumai()">
+        <input type="button" value="加入购物车" class="right2" @click="goumai()">
+        <mt-popup v-if="isshow" v-model="popupVisible" position="bottom" class="show">
+            <Stanchuang :id="id" @change="fun"></Stanchuang>
+        </mt-popup>
     </div>
 </template>
 
 <script>
-
+import Vue from 'vue';
+// import { Toast } from 'mint-ui';
+Vue.component(Popup.name, Popup);
+import { Popup } from 'mint-ui';
+import Stanchuang from './Stanchuang';
+export default {
+props:['id'],
+  data () {
+    return {
+        popupVisible:false,
+        goodslists:[],
+        // tiao:"",
+        isshow:false,
+        id:"" 
+    }
+  },
+ 
+  methods:{
+    //   console.log(this.id)
+          goumai(){
+           this.popupVisible=true; 
+            this.isshow=true;
+            // this.id=id;
+            console.log(this.id);
+            // this.reload();
+            // window.location.reload();
+      },
+      fun(wang){
+          this.isshow = wang;
+      }
+      
+  },
+  components:{
+     Stanchuang
+  }
+}
 </script>
 
 <style scoped lang=scss>
@@ -82,4 +124,9 @@
            border-right: 0;
        }
    }
+    .show{
+        width: 100%;
+        height:4rem;
+        border-radius: .1rem;
+    }
 </style>

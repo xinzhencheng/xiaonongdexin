@@ -4,7 +4,7 @@
  * @Author: mac
  * @Date: 2019-11-06 14:35:10
  * @LastEditors: 马川
- * @LastEditTime: 2019-12-02 16:45:04
+ * @LastEditTime: 2019-12-05 18:05:14
  -->
 <template>
     <div class="box"> 
@@ -50,7 +50,7 @@
                <button disabled="disabled" class="dsdasdsad">删除订单</button>
             </div>
         </div> -->
-        <div class="sect" v-for="(dindan,index) in shuxin" :key="index">
+        <div class="sect" v-for="(dindan,index) in shuxin" :key="index" >
             <div class="sectt"></div>
             <div class="sectop">
                 <div class="sectleft">

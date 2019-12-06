@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-12-02 15:49:27
  * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 19:07:52
+ * @LastEditTime: 2019-12-05 15:43:18
  * @Description: 
  -->
 <template>
@@ -11,14 +11,37 @@
             <i class="el-icon-setting"></i>
         </router-link>
         <img src="../assets/img/touxiang1.png" alt="" class="img1">
-        <span class="span1">独行者</span>
+        <router-link to="/Login"><span class="span1">{{str}}</span></router-link>
         <br/>
         <span class="span2">普通用户</span>
     </div>   
 </template>
 
 <script>
+export default {
+  name: 'Denglu',
+  data () {
+    return {
+      str:"请登录"
 
+    }
+  }, 
+  created(){
+   this.checkuser();
+  },
+
+  methods:{
+    checkuser(){
+      let user=localStorage.getItem("userPhone");
+      console.log(user);
+      if(user!=null){
+        this.str=user;
+      }
+    }
+     
+  }
+ 
+}
 </script>
 
 <style scoped lang=scss>
@@ -46,11 +69,11 @@
             line-height: .3rem;
         }
         .span1{
-            font-size: .20rem;
-            color:#fff;
-            position: relative;
-            left: .28rem;
-            bottom:.1rem;
+                font-size: .20rem;
+                color: #fff;
+                position: relative;
+                left: .9rem;
+                bottom: .28rem;
         }
         .span2{
             font-size: .14rem;

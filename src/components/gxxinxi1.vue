@@ -34,7 +34,7 @@ export default {
     },
     methods:{    },
     created(){
-        axios.get('http://localhost:3000/huiyuanzunxiangs/'+this.id)
+        axios.get('http://localhost:3000/rementuijies/'+this.id)
         .then(res=>{
             this.xinxi = res.data;
             console.log(res.data)

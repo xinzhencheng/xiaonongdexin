@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-30 16:00:04
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-05 21:09:15
+ * @LastEditTime: 2019-12-06 11:07:17
  * @Description: 
  -->
 <template>
@@ -58,7 +58,7 @@ export default {
      
     },
     created(){
-        axios.get('http://localhost:3000/huiyuanzunxiangs/'+this.id)
+        axios.get('http://localhost:3000/rementuijies/'+this.id)
         .then(res=>{
             this.mag = res.data;
             console.log(this.mag)
