@@ -3,6 +3,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/Index'
 import xiangqingye from '@/pages/xiangqingye'
+import gxiangqingye from '@/pages/gxiangqingye'
 import MinePage from '@/pages/MinePage'
 
 
@@ -52,6 +53,12 @@ export default new Router({
       path: '/xiangqingye/:id',
       name: 'xiangqingye',
       component: xiangqingye,
+      props:true
+    },
+    {
+      path: '/gxiangqingye/:id',
+      name: 'gxiangqingye',
+      component: gxiangqingye,
       props:true
     },
     {
