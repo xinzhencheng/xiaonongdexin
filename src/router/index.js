@@ -31,10 +31,11 @@ import xinzengyinhangka from '@/pages/xinzengyinhangka'
 
 import Squerendingdan from '@/pages/Squerendingdan'
 import Ssousuo from '@/pages/Ssousuo'
+import { Toast } from 'mint-ui';
 
 Vue.use(Router)
 
-export default new Router({
+let router= new Router({
   routes: [
 
     {
@@ -56,7 +57,10 @@ export default new Router({
     {
       path: '/MinePage',
       name: 'MinePage',
-      component: MinePage
+      component: MinePage,
+      meta:{
+        requireAuth:true
+      }
     },
     {
       path: '/Login',
@@ -97,10 +101,14 @@ export default new Router({
       path: '/xiugaishouji',
       name: 'xiugaishouji',
       component: xiugaishouji,
-
+    },
+    {
       path: '/ShoppingCar',
       name: 'ShoppingCar',
-      component: ShoppingCar
+      component: ShoppingCar,
+      meta:{
+        requireAuth:true
+      }
     },
     {
       path: '/Vip',
@@ -161,3 +169,39 @@ export default new Router({
 
   ]
 })
+router.beforeEach((to,from,next)=>{
+  // if(to.fullPath=='/login' || to.fullPath='/Index'){
+  //     next();  
+  // }else if(!localStorage.getItem('username')){
+  //     next(false);
+  // }
+  // console.log('前置守卫');
+  // console.log(to);
+  // console.log(from);
+  // // next(false);
+  // next();
+
+// import { Toast } from 'mint-ui';
+  if(to.meta.requireAuth){
+      console.log('前置守卫');
+      console.log(localStorage.getItem('userPhone'));
+      if(localStorage.getItem('userPhone')==null){
+            // Toast("亲，您还未登录，请先登录！");
+            // setInterval(()=>{
+                next('/Login');
+            // },1500)
+            
+      }else{
+          next();
+      }
+  }else{
+     next();
+  }
+});
+
+router.afterEach((to, from) => {
+// console.log('后置守卫');
+// console.log(to);
+// console.log(from);
+})
+export default  router;

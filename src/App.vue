@@ -1,5 +1,10 @@
-
-
+<!--
+ * @Author: 司娟
+ * @Date: 2019-11-26 16:38:52
+ * @LastEditors: 司娟
+ * @LastEditTime: 2019-12-05 10:16:37
+ * @Description: file content
+ -->
 <template>
   <div id="app">
     <router-view/>
@@ -8,12 +13,29 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  provide(){
+    return {
+      reload:this.reload
+    };
+  },
+  data(){
+    return {
+      isRouterAlive:true
+    };
+  },
+  methods:{
+    reload(){
+      this.isRouterAlive=false;
+      this.$nextTick(function(){
+        this.isRouterAlive=true;
+      })
+    }
+  }
 }
 </script>
 
 <style>
-
 *{
   margin: 0;
   padding: 0;
@@ -36,5 +58,4 @@ a{
 em,i{
   font-style: normal;
 }
-
 </style>

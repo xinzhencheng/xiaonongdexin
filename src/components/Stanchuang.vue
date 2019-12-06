@@ -2,71 +2,66 @@
  * @Author: 司娟
  * @Date: 2019-12-02 15:43:42
  * @LastEditors: 司娟
- * @LastEditTime: 2019-12-04 17:03:36
+ * @LastEditTime: 2019-12-05 14:52:33
  * @Description: file content
  -->
 <template>
   <div class="box">
       <div class="tubiao">
-        <i class="el-icon-close"></i>
+        <i @click="shan" class="el-icon-close"></i>
       </div>
-      <div style="display:none" >{{id}}</div>
-      <ul>
-        <li v-for="(goodslist,index) in goodslists" :key="index">
-           <router-link  :to='"/Ssousuo/"+goodslist.id'>
-            <div class="content">
-              <img :src="goodslist.img" alt="">
-              <div class="jieshao">
-                <span class="biaoti">{{goodslist.biaoti}}</span>
-                <i>￥{{goodslist.jiaqian}}</i>
-                <p>
-                  <span>库存：{{goodslist.kucun}}件</span>
-                  <em>销量：{{goodslist.xiaoliang}}件</em>
-                </p>
-              </div>
-            </div>
-            <div class="guige">
-              <p>规格</p>
-              <ul>
-                <li>礼盒</li>
-                <li>礼盒</li>
-              </ul>
-            </div>
-            <div class="bottom">
-              <span class="count">购买数量</span>
-              <div class="right">
-                <span class="btn" v-bind:class="{boxcls:isYellow}" v-on:click="reduceCount">-</span>
-                <em>{{counter}}</em>
-                <span class="btn" v-on:click="addCount">+</span>
-              </div>        
-            </div>
-            <div class="true">
-              <input type="button" value="确定">
-            </div>
-          </router-link>
-        </li>
-      </ul>      
+        <div class="content">
+          <img :src="this.goodslists.img" alt="">
+          <div class="jieshao">
+            <span class="biaoti">{{this.goodslists.biaoti}}</span>
+            <i>￥{{this.goodslists.jiaqian}}</i>
+            <p>
+              <span>库存：{{this.goodslists.kucun}}件</span>
+              <em>销量：{{this.goodslists.xiaoliang}}件</em>
+            </p>
+          </div>
+        </div>
+        <div class="guige">
+          <p>规格</p>
+          <ul>
+            <li>礼盒</li>
+            <li>礼盒</li>
+          </ul>
+        </div>
+        <div class="bottom">
+          <span class="count">购买数量</span>
+          <div class="right">
+            <span class="btn" v-bind:class="{boxcls:isYellow}" v-on:click="reduceCount">-</span>
+            <em>{{counter}}</em>
+            <span class="btn" v-on:click="addCount">+</span>
+          </div>        
+        </div>
+        <div class="true">
+          <input type="button" value="确定">
+        </div>   
   </div>
 </template>
 <script>
 import axios from 'axios';
 export default {
   name: 'Back',
+  inject:["reload"],
   props:['id'],
   data () {
-    return {
-       goodslists:[],
-       shop:[],
+    return { 
+       goodslists:{},
        counter:1,
        isYellow:true  
     }
   },
-  created() {
+  created(){
      //从后端获取数据     
-     axios.get('http://localhost:3000/rementuijies')
+     console.log("子组件"+this.id);
+     axios.get('http://localhost:3000/rementuijies/'+this.id)
      .then(res=>{ 
          this.goodslists = res.data;
-         this.shop = this.getBooksByType(this.goodslists);
+         console.log(this.goodslists);
+        //  this.shop = this.getBooksByType(this.goodslists);
          //内部数据，由于没有渲染在组件里，所以，没有触发组件更新
         //  this.shops = this.getBooksByType(this.goodslists);//内部数据，由于渲染到了页面，所以，触发了组件更新
      })
@@ -74,6 +69,7 @@ export default {
          console.log(err);
      });
   },
+  
   methods:{
         reduceCount:function(){
              //this是vue对象
@@ -81,23 +77,16 @@ export default {
               this.isYellow=true;
                 return;
             }
-            this.counter--;
+          this.counter--;            
         },
         addCount:function(){
           this.isYellow=false;
-            // this是vue对象
-            // console.log(this);
             this.counter++;
         },
-        getBooksByType(data){//根据类型获取数据
-         let arr=[];
-         for(let i in data){
-             if(data[i].id==this.id){
-                 arr.push(data[i]);
-             }
-         }
-         return arr;
-     }  
+        shan(){
+          this.reload();
+          this.$emit('changemsg',false);//$emit 能够触发事件  
+        }
   }
 }
 </script>
@@ -106,6 +95,7 @@ export default {
 <style lang="scss" scoped="" type="text/css">
 .box{
     width:94%;
+    // height: 2rem;
     padding:0 3%;
     .tubiao{
       height: .1rem;
@@ -118,7 +108,6 @@ export default {
     }
     .content{
       height: .85rem;
-      // margin-top: .24rem;
       padding-bottom: .22rem;
       border-bottom: 1px solid #dddddd;
       img{
@@ -158,11 +147,12 @@ export default {
       p{
         font-size: .15rem;
         color: #333333;
-        margin: .16rem 0;
+        margin: .15rem 0;
       }
       ul{
         li{
           height: .35rem;
+          display: inline-block;
           line-height: .35rem;
           background: #c3eed4;
           padding: 0 .31rem; 
@@ -175,7 +165,7 @@ export default {
     }
     .bottom{
       margin-top: .27rem;
-      height: .7rem;
+      height: .6rem;
       .count{
         font-size: .15rem;
         color: #333333;
@@ -204,7 +194,7 @@ export default {
     }
   }
   .true{
-      height: .48rem;
+      // height: .48rem;
       input{
       display: block;
       height: .38rem;
