@@ -1,4 +1,3 @@
-
 <template>
   <div class="box">
       <footer>
@@ -22,7 +21,7 @@
             <li>
               <router-link to="/shoppingCar">
               <div :class="{'bianse':footerCls[2]}"  @touchstart="changeCls(2)">
-                  <i class="el-icon-shopping-cart-1 mac"></i>
+                  <i class="el-icon-shopping-cart-1 macv"></i>
                   <span class="spanhh">购物车</span>
                </div>
               </router-link>
