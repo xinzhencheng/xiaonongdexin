@@ -53,7 +53,7 @@ export default {
         },
         shoucang(){
             console.log(this.id)
-            Axios.get('http://localhost:3000/huiyuanzunxiangs?id='+this.id)
+            Axios.get('http://localhost:3000/rementuijies?id='+this.id)
             .then(res=>{ 
                 // console.log( res.data);
                 let chuan=res.data[0];
@@ -63,7 +63,7 @@ export default {
                      if(key=="id"){
                          url=url+"id="+chuan[key];
                      }
-                     if(key=="img1"){
+                     if(key=="img"){
                          url=url+"&img="+chuan[key];
                      }
                      if(key=="biaoti"){

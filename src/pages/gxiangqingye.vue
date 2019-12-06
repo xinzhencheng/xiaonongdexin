@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-29 17:46:24
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-06 10:49:39
+ * @LastEditTime: 2019-12-06 16:35:03
  * @Description: 
  -->
 <template>
@@ -13,7 +13,7 @@
     <gxyouxuan></gxyouxuan>
     <gxpingjia></gxpingjia>
     <gxxiangqing1 :id="id"></gxxiangqing1>
-    <gxbottom></gxbottom>
+    <gxbottom1 :id="id"></gxbottom1>
   </div>
 </template>
 <script>
@@ -23,7 +23,7 @@ import gxxinxi1 from '../components/gxxinxi1';
 import gxyouxuan from '../components/gxyouxuan';
 import gxpingjia from '../components/gxpingjia';
 import gxxiangqing1 from '../components/gxxiangqing1';
-import gxbottom from '../components/gxbottom';
+import gxbottom1 from '../components/gxbottom1';
 
 
 export default {
@@ -36,7 +36,7 @@ export default {
   },
 
   components:{
-     gxherder,gxlunbo1,gxxinxi1,gxyouxuan,gxpingjia,gxxiangqing1,gxbottom
+     gxherder,gxlunbo1,gxxinxi1,gxyouxuan,gxpingjia,gxxiangqing1,gxbottom1
   }
 }
 </script>

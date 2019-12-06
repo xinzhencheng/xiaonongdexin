@@ -2,7 +2,7 @@
  * @Author: 郭涛
  * @Date: 2019-11-29 17:46:24
  * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-05 21:04:34
+ * @LastEditTime: 2019-12-06 15:06:13
  * @Description: 
  -->
 <template>
@@ -13,7 +13,7 @@
     <gxyouxuan></gxyouxuan>
     <gxpingjia></gxpingjia>
     <gxxiangqing :id="id"></gxxiangqing>
-    <gxbottom></gxbottom>
+    <gxbottom :id="id"></gxbottom>
   </div>
 </template>
 <script>

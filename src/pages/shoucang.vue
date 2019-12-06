@@ -1,8 +1,8 @@
 <!--
  * @Author: 张腾
  * @Date: 2019-11-29 15:15:20
- * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 19:26:36
+ * @LastEditors: 郭涛
+ * @LastEditTime: 2019-12-06 16:19:47
  * @Description: 
  -->
 
@@ -40,14 +40,36 @@
 			</el-tab-pane>
 			<el-tab-pane label="收藏店铺" name="first">
 				<div class="dianpu">
-					<div class="shouCd" v-for="(dianpu,index) in dianpu" :key="index">
+					<div class="shouCd" >
 						<div class="shouCdleft">
-							<img :src= dianpu.img />
+							<img src="static/img/shuiguo02.png" />
 						</div>
 						<div class="shouCdrigth">
-							<h1>{{dianpu.name}}</h1>
-							<p>商品数: {{dianpu.count}}</p><span>综合评价  :<span> {{dianpu.pingfen}}</span></span>
-							<img :src= dianpu.img01 />
+							<h1>广西隆安水果</h1>
+							<p>商品数: 1</p><span>综合评价  :<span> ⭐⭐⭐⭐</span></span>
+							<img src= "static/img/baozheng.jpg" />
+							
+						</div>
+					</div>
+					<div class="shouCd" >
+						<div class="shouCdleft">
+							<img src="static/img/shuiguo02.png" />
+						</div>
+						<div class="shouCdrigth">
+							<h1>广西隆安水果</h1>
+							<p>商品数: 3</p><span>综合评价  :<span> ⭐⭐⭐</span></span>
+							<img src= "static/img/baozheng.jpg" />
+							
+						</div>
+					</div>
+					<div class="shouCd" >
+						<div class="shouCdleft">
+							<img src="static/img/shuiguo02.png" />
+						</div>
+						<div class="shouCdrigth">
+							<h1>广西隆安水果</h1>
+							<p>商品数: 5</p><span>综合评价  :<span> ⭐⭐⭐⭐⭐</span></span>
+							<img src= "static/img/renzheng.jpg" />
 							
 						</div>
 					</div>
@@ -73,9 +95,8 @@
 			
 			axios.get('http://localhost:3000/shoucang')
 				.then(res => {
-					this.shoucang = res.data[0];
-					this.shangpin =this.shoucang.shangpin
-					this.dianpu =this.shoucang.dianpu
+					this.shangpin = res.data;
+					console.log(this.shangpin);
 					
 				})
 

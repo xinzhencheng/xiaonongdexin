@@ -1,8 +1,8 @@
 <!--
  * @Author: 张腾
  * @Date: 2019-11-26 10:19:58
- * @LastEditors: 张腾
- * @LastEditTime: 2019-12-05 09:32:26
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-04 17:53:55
  * @Description: 
  -->
 
@@ -37,9 +37,9 @@
               <h1>{{shuiguoxinxi.name}}</h1>
               <h2>{{shuiguoxinxi.guige}}</h2>
               <div class="lbrP">
-                <p v-bind:style="istuijian">{{shuiguoxinxi.istuijian}}</p>
-                <p v-bind:style="ishaohuo">{{shuiguoxinxi.ishaohuo}}</p>
-                <p v-bind:style="isbaoyou">{{shuiguoxinxi.isbaoyou}}</p>
+                <p>{{shuiguoxinxi.istuijian}}</p>
+                <p>{{shuiguoxinxi.ishaohuo}}</p>
+                <p>{{shuiguoxinxi.isbaoyou}}</p>
               </div>
               <h3>￥{{shuiguoxinxi.price}}.0</h3>
               <img :src="shuiguoxinxi.img02" />
@@ -79,13 +79,13 @@
             </div>
           </div>
         </el-tab-pane>
-        <el-tab-pane label="鲜蛋肉禽" class="shuiguo uls"> <ul class="ul01">
-            <li @click="changeshucai">全部</li>
+        <el-tab-pane label="鲜蛋肉禽" class="shuiguo uls"><ul class="ul01">
+            <li @click="changexiandan">全部</li>
             <li
-              v-for="(shucaisort,index) in shucaisort"
+              v-for="(xiandansort,index) in xiandansort"
               :key="index"
-              @click="changeshucaitype(shucaisort.type)"
-            >{{shucaisort.name}}</li>
+              @click="changexiandantype(xiandansort.type)"
+            >{{xiandansort.name}}</li>
             <img src="../assets/ic_arrow_down.png" />
           </ul>
 
@@ -94,29 +94,29 @@
             <li>价格</li>
             <li>销量</li>
           </ul>
-          <div class="liebiao" v-for="(shucaixinxi,index) in shucaixinxi" :key="index">
+          <div class="liebiao" v-for="(xiandanxinxi,index) in xiandanxinxi" :key="index">
             <div class="imgs">
-              <img :src="shucaixinxi.img01" />
+              <img :src="xiandanxinxi.img01" />
             </div>
             <div class="lbright">
-              <h1>{{shucaixinxi.name}}</h1>
-              <h2>{{shucaixinxi.guige}}</h2>
+              <h1>{{xiandanxinxi.name}}</h1>
+              <h2>{{xiandanxinxi.guige}}</h2>
               <div class="lbrP">
-                <p>{{shucaixinxi.istuijian}}</p>
-                <p>{{shucaixinxi.ishaohuo}}</p>
-                <p>{{shucaixinxi.isbaoyou}}</p>
+                <p>{{xiandanxinxi.istuijian}}</p>
+                <p>{{xiandanxinxi.ishaohuo}}</p>
+                <p>{{xiandanxinxi.isbaoyou}}</p>
               </div>
-              <h3>￥{{shucaixinxi.price}}.0</h3>
-              <img :src="shucaixinxi.img02" />
+              <h3>￥{{xiandanxinxi.price}}.0</h3>
+              <img :src="xiandanxinxi.img02" />
             </div>
           </div></el-tab-pane>
-        <el-tab-pane label="粮油调味" class="shuiguo uls"> <ul class="ul01">
-            <li @click="changeshucai">全部</li>
+        <el-tab-pane label="粮油调味" class="shuiguo uls"><ul class="ul01">
+            <li @click="changeliangyou">全部</li>
             <li
-              v-for="(shucaisort,index) in shucaisort"
+              v-for="(liangyousort,index) in liangyousort"
               :key="index"
-              @click="changeshucaitype(shucaisort.type)"
-            >{{shucaisort.name}}</li>
+              @click="changeliangyoutype(liangyousort.type)"
+            >{{liangyousort.name}}</li>
             <img src="../assets/ic_arrow_down.png" />
           </ul>
 
@@ -125,29 +125,29 @@
             <li>价格</li>
             <li>销量</li>
           </ul>
-          <div class="liebiao" v-for="(shucaixinxi,index) in shucaixinxi" :key="index">
+          <div class="liebiao" v-for="(liangyouxinxi,index) in liangyouxinxi" :key="index">
             <div class="imgs">
-              <img :src="shucaixinxi.img01" />
+              <img :src="liangyouxinxi.img01" />
             </div>
             <div class="lbright">
-              <h1>{{shucaixinxi.name}}</h1>
-              <h2>{{shucaixinxi.guige}}</h2>
+              <h1>{{liangyouxinxi.name}}</h1>
+              <h2>{{liangyouxinxi.guige}}</h2>
               <div class="lbrP">
-                <p>{{shucaixinxi.istuijian}}</p>
-                <p>{{shucaixinxi.ishaohuo}}</p>
-                <p>{{shucaixinxi.isbaoyou}}</p>
+                <p>{{liangyouxinxi.istuijian}}</p>
+                <p>{{liangyouxinxi.ishaohuo}}</p>
+                <p>{{liangyouxinxi.isbaoyou}}</p>
               </div>
-              <h3>￥{{shucaixinxi.price}}.0</h3>
-              <img :src="shucaixinxi.img02" />
+              <h3>￥{{liangyouxinxi.price}}.0</h3>
+              <img :src="liangyouxinxi.img02" />
             </div>
           </div></el-tab-pane>
-        <el-tab-pane label="粮油调味" class="shuiguo uls"> <ul class="ul01">
-            <li @click="changeshucai">全部</li>
+        <el-tab-pane label="粮油调味" class="shuiguo uls"><ul class="ul01">
+            <li @click="changeshanzhen">全部</li>
             <li
-              v-for="(shucaisort,index) in shucaisort"
+              v-for="(shanzhensort,index) in shanzhensort"
               :key="index"
-              @click="changeshucaitype(shucaisort.type)"
-            >{{shucaisort.name}}</li>
+              @click="changeshanzhentype(shanzhensort.type)"
+            >{{shanzhensort.name}}</li>
             <img src="../assets/ic_arrow_down.png" />
           </ul>
 
@@ -156,20 +156,20 @@
             <li>价格</li>
             <li>销量</li>
           </ul>
-          <div class="liebiao" v-for="(shucaixinxi,index) in shucaixinxi" :key="index">
+          <div class="liebiao" v-for="(shanzhenxinxi,index) in shanzhenxinxi" :key="index">
             <div class="imgs">
-              <img :src="shucaixinxi.img01" />
+              <img :src="shanzhenxinxi.img01" />
             </div>
             <div class="lbright">
-              <h1>{{shucaixinxi.name}}</h1>
-              <h2>{{shucaixinxi.guige}}</h2>
+              <h1>{{shanzhenxinxi.name}}</h1>
+              <h2>{{shanzhenxinxi.guige}}</h2>
               <div class="lbrP">
-                <p>{{shucaixinxi.istuijian}}</p>
-                <p>{{shucaixinxi.ishaohuo}}</p>
-                <p>{{shucaixinxi.isbaoyou}}</p>
+                <p>{{shanzhenxinxi.istuijian}}</p>
+                <p>{{shanzhenxinxi.ishaohuo}}</p>
+                <p>{{shanzhenxinxi.isbaoyou}}</p>
               </div>
-              <h3>￥{{shucaixinxi.price}}.0</h3>
-              <img :src="shucaixinxi.img02" />
+              <h3>￥{{shanzhenxinxi.price}}.0</h3>
+              <img :src="shanzhenxinxi.img02" />
             </div>
           </div></el-tab-pane>
       </el-tabs>
@@ -193,13 +193,22 @@ export default {
       shuiguo: [],
       shuiguosort: {},
       shuiguoxinxi: [],
+      
       shucai: {},
       shucaisort: {},
-      istuijian: 'color:"#e0a94f";border: "1px solid #e0a94f"',
-      ishaohuo: 'color:"#68d68e";border: "1px solid #68d68e"',
-      isbaoyou: 'color:"#ffa387";border: "1px solid #ffa387"',
-
-      shucaixinxi: []
+      shucaixinxi: [],
+      
+      xiandan: {},
+      xiandansort: {},
+      xiandanxinxi: [],
+      
+      liangyou: {},
+      liangyousort: {},
+      liangyouxinxi: [],
+      
+      shanzhen: {},
+      shanzhensort: {},
+      shanzhenxinxi: []
     };
   },
    components:{
@@ -212,30 +221,31 @@ export default {
       .get("http://localhost:3000/shopplist")
       .then(res => {
         this.shopplist = res.data[0];
+        //水果
         this.shuiguo = this.shopplist.shuiguo;
         this.shuiguosort = this.shuiguo[0].sort;
-
         let shuiguoxinxiA = this.shuiguo.slice(1, this.shuiguo.length);
-
         this.shuiguoxinxi = shuiguoxinxiA;
-      })
-
-      .catch(err => {
-        console.log(err);
-      });
-    axios
-      .get("http://localhost:3000/shopplist")
-      .then(res => {
-        this.shopplist = res.data[0];
-
+        //蔬菜
         this.shucai = this.shopplist.shucai;
-
         this.shucaisort = this.shucai[0].sort;
-        this.shucaisort = this.shucai[0].sort;
-
         let shucaixinxiA = this.shucai.slice(1, this.shucai.length);
-
         this.shucaixinxi = shucaixinxiA;
+        //蛋肉
+        this.xiandan = this.shopplist.xiandan;
+        this.xiandansort = this.xiandan[0].sort;
+        let xiandanxinxiA = this.xiandan.slice(1, this.xiandan.length);
+        this.xiandanxinxi = xiandanxinxiA;
+        //粮油
+        this.liangyou = this.shopplist.liangyou;
+        this.liangyousort = this.liangyou[0].sort;
+        let liangyouxinxiA = this.liangyou.slice(1, this.liangyou.length);
+        this.liangyouxinxi = liangyouxinxiA;
+        //山珍
+        this.shanzhen = this.shopplist.shanzhen;
+        this.shanzhensort = this.shanzhen[0].sort;
+        let shanzhenxinxiA = this.shanzhen.slice(1, this.shuiguo.length);
+        this.shanzhenxinxi = shanzhenxinxiA;
       })
 
       .catch(err => {
@@ -284,6 +294,68 @@ export default {
           console.log(err);
         });
     },
+    //鲜蛋页面初次加载渲染
+
+    changexiandan() {
+      axios
+        .get("http://localhost:3000/shopplist")
+        .then(res => {
+          this.shopplist = res.data[0];
+          this.xiandan = this.shopplist.xiandan;
+
+          this.xiandansort = this.xiandan[0].sort;
+
+          let xiandanxinxiA = this.xiandan.slice(1, this.xiandan.length);
+
+          this.xiandanxinxi = xiandanxinxiA;
+        })
+
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    
+     //粮油页面初次加载渲染
+
+    changeliangyou() {
+      axios
+        .get("http://localhost:3000/shopplist")
+        .then(res => {
+          this.shopplist = res.data[0];
+          this.liangyou = this.shopplist.liangyou;
+
+          this.liangyousort = this.liangyou[0].sort;
+
+          let liangyouxinxiA = this.liangyou.slice(1, this.liangyou.length);
+
+          this.liangyouxinxi = liangyouxinxiA;
+        })
+
+        .catch(err => {
+          console.log(err);
+        });
+    },
+     //粮油页面初次加载渲染
+
+    changeshanzhen() {
+      axios
+        .get("http://localhost:3000/shopplist")
+        .then(res => {
+          this.shopplist = res.data[0];
+          this.shanzhen = this.shopplist.shanzhen;
+
+          this.shanzhensort = this.shanzhen[0].sort;
+
+          let shanzhenxinxiA = this.shanzhen.slice(1, this.shanzhen.length);
+
+          this.shanzhenxinxi = shanzhenxinxiA;
+        })
+
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    
     //s水果不同类型页面加载渲染
 
     changeshuiguotype(typename) {
@@ -333,7 +405,83 @@ export default {
         })
 
         .catch(err => {});
+    },
+  	//鲜蛋不同类型页面加载渲染
+
+    changexiandantype(typename) {
+      axios
+        .get("http://localhost:3000/shopplist")
+        .then(res => {
+          this.shopplist = res.data[0];
+          this.xiandan = this.shopplist.xiandan;
+
+          this.xiandansort = this.xiandan[0].sort;
+
+          let xiandanxinxiA = this.xiandan.slice(1, this.xiandan.length);
+
+          this.xiandanxinxi = xiandanxinxiA;
+          let arr = [];
+          for (let i = 0; i < this.xiandanxinxi.length; i++) {
+            if (this.xiandanxinxi[i].type02 == typename) {
+              arr.push(this.xiandanxinxi[i]);
+            }
+          }
+          return (this.xiandanxinxi = arr);
+        })
+
+        .catch(err => {});
+    },
+  	//粮油不同类型页面加载渲染
+
+    changeliangyoutype(typename) {
+      axios
+        .get("http://localhost:3000/shopplist")
+        .then(res => {
+          this.shopplist = res.data[0];
+          this.liangyou = this.shopplist.liangyou;
+
+          this.liangyousort = this.liangyou[0].sort;
+
+          let liangyouxinxiA = this.liangyou.slice(1, this.liangyou.length);
+
+          this.liangyouxinxi = liangyouxinxiA;
+          let arr = [];
+          for (let i = 0; i < this.xiandanxinxi.length; i++) {
+            if (this.liangyouxinxi[i].type02 == typename) {
+              arr.push(this.liangyouxinxi[i]);
+            }
+          }
+          return (this.xiandanxinxi = arr);
+        })
+
+        .catch(err => {});
+    },
+    //山珍不同类型页面加载渲染
+
+    changeshanzhentype(typename) {
+      axios
+        .get("http://localhost:3000/shopplist")
+        .then(res => {
+          this.shopplist = res.data[0];
+          this.shanzhen = this.shopplist.shanzhen;
+
+          this.shanzhensort = this.shanzhen[0].sort;
+
+          let shanzhenxinxiA = this.shanzhen.slice(1, this.shanzhen.length);
+
+          this.shanzhenxinxi = shanzhenxinxiA;
+          let arr = [];
+          for (let i = 0; i < this.shanzhenxinxi.length; i++) {
+            if (this.shanzhenxinxi[i].type02 == typename) {
+              arr.push(this.shanzhenxinxi[i]);
+            }
+          }
+          return (this.shanzhenxinxi = arr);
+        })
+
+        .catch(err => {});
     }
+  
   }
 };
 </script>
