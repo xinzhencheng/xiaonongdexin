@@ -1,8 +1,8 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-11-28 16:51:05
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-05 15:39:41
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-07 12:06:20
  * @Description: 
  -->
 <template>
@@ -161,7 +161,7 @@ export default {
                     img{
                         width: .25rem;
                         height: .25rem;
-                        z-index: 99;
+                        /* z-index: 99; */
                         position: relative;
                         top: .1rem;
                         left: .2rem;

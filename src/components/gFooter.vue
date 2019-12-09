@@ -34,7 +34,7 @@
                </div>
               </router-link>
             </li>
-        </ul> 
+        </ul>
       </footer>
   </div>
 
@@ -46,7 +46,7 @@ export default {
     data() {
         return {
             foots: [],
-            
+
         }
     },
     computed: {
@@ -72,6 +72,7 @@ footer{
     bottom: -4px;
     left: 0;
     border-top:1px solid #dddddd;
+     z-index: 12;
 }
 ul{
     display: flex;
@@ -80,7 +81,7 @@ ul{
     height: 100%;
     width: 100%;
 }
-li{ 
+li{
     text-align: center;
     width: 33.33%
 }
@@ -99,11 +100,11 @@ i{
   color:#fdb934;
 } */
 .bianse span{
-    
+
   color:#1acb61;
 }
 .bianse i{
-  
+
   color:#1acb61;
 }
 </style>

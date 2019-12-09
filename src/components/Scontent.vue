@@ -2,23 +2,24 @@
  * @Author: 司娟
  * @Date: 2019-11-26 17:52:36
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-05 18:00:03
+ * @LastEditTime: 2019-12-07 15:01:51
  * @Description: file content
  -->
 <template>
   <div class="box">
+      <router-link to="/xinzengaddress">
         <div class="both dizhi">
             <p class="di1">
-                <span>司娟</span>
-                <em>18894007545</em>
+                <span>{{Dizhi.people}}</span>&nbsp;&nbsp;&nbsp;{{Dizhi.phone}}
             </p>
             <p class="di2">
                 <i class="el-icon-location-outline"></i>
-                <span>陕西西安雁塔区</span>
+                <span>{{Dizhi.Area}}{{Dizhi.xiangxidizhi}}</span>
                 <i class="el-icon-arrow-right"></i>
             </p>
             <img src="../assets/img/ic_address_under.png" alt="">    
         </div>
+      </router-link>
         <ul>
           <li class="both shop" v-for="(shi,index) in shiwu[0]" :key="index">
             <div class="title">
@@ -54,7 +55,7 @@
               <input type="text" placeholder="点击这里填写您对商家的留言">
             </div>
             <div class="b3">
-              <span>小计：</span>
+              <span>共{{shi.count}}件商品  小计：</span>
               <em>{{shi.price*shi.count}}</em>
             </div>
           </li>
@@ -75,6 +76,7 @@ export default {
   name: 'Back',
   data () {
     return {
+      Dizhi:[],
       shiwu:[],
       num:0,
       addprice:0
@@ -82,28 +84,21 @@ export default {
   },
   created(){
     this.shiwu=this.$store.state.jie1;
-    // let arr=this.shiwu[0];
-    // console.log(this.shi.count)
-    // for(let i=0;i<arr.length;i++){
-    //   let str=0;
-    //   console.log(arr.length)
-    //   // console.log(str);
-    // }
-    
+    // console.log(this.$store.state.dizhi);
+    this.Dizhi=this.$store.state.dizhi;
   },
   methods:{
      
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped="" type="text/css">
 .box{
   width: 100%;
   min-height:5.5rem;
   background: #f9f9f9;
-  margin-top: .68rem;
+  margin-top: .5rem;
   overflow: hidden;
   .both{
         margin-top: .1rem;
@@ -237,7 +232,7 @@ export default {
       text-align: right;
       margin-right: 2%;
       span{
-        font-size: .14rem;
+        font-size: .12rem;
         color: #666666;
       }
       em{

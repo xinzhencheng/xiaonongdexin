@@ -28,7 +28,8 @@ import shoucang from '@/pages/shoucang'
 import shouhuodizhi from '@/pages/shouhuodizhi'
 import myyinhangka from '@/pages/myyinhangka'
 import xinzengyinhangka from '@/pages/xinzengyinhangka'
-
+import xinzengaddress from '@/pages/xinzengaddress'
+import Paypage from '@/pages/Paypage'
 
 import Squerendingdan from '@/pages/Squerendingdan'
 import Ssousuo from '@/pages/Ssousuo'
@@ -138,7 +139,7 @@ let router= new Router({
       name: 'Open2',
       component: Open2
     },
-//  
+//
  {
    path: '/shoppClassify',
    name: 'shoppClassify',
@@ -173,13 +174,24 @@ let router= new Router({
   path: '/Ssousuo',
   name: 'Ssousuo',
   component: Ssousuo
+},
+{
+  path: '/xinzengaddress',
+  name: 'xinzengaddress',
+  component: xinzengaddress
+},
+{
+  path: '/Paypage',
+  name: 'Paypage',
+  component: Paypage
 }
+
 
   ]
 })
 router.beforeEach((to,from,next)=>{
   // if(to.fullPath=='/login' || to.fullPath='/Index'){
-  //     next();  
+  //     next();
   // }else if(!localStorage.getItem('username')){
   //     next(false);
   // }
@@ -198,7 +210,7 @@ router.beforeEach((to,from,next)=>{
             // setInterval(()=>{
                 next('/Login');
             // },1500)
-            
+
       }else{
           next();
       }

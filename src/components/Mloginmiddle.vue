@@ -7,7 +7,7 @@
  * @LastEditTime: 2019-12-04 15:21:10
  -->
 <template>
-    <div class="box"> 
+    <div class="box">
         <div class="box1">
             <div class="middle">
                 <div class="middle1">
@@ -31,8 +31,8 @@
                                 <span class="spa">
                                     忘记密码?
                                 </span>
-                            </router-link>                           
-                        
+                            </router-link>
+
                     </div>
 
                 </div>
@@ -68,7 +68,7 @@
             </div>
             <div class="footer1">
                 <div class="footer2">
-                    
+
                 </div>
                 <span>第三方登录</span>
                 <div class="footer3">
@@ -79,7 +79,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/ic_ali.png" alt="">
             </div>
         </div>
-    </div>  
+    </div>
 </template>
 
 <script>
@@ -126,22 +126,23 @@ export default {
                 if(this.userPhone==res.data[0].userPhone && this.password==res.data[0].userpass){
                 setTimeout(()=>{
                     this.id=res.data[0].id
-                    console.log(this.id)
-                    localStorage.setItem('id',this.id);
+                    this.$store.commit('macv',this.id)
+                    console.log(this.id+'--------------------')
+                    // localStorage.setItem('id',this.id);
                     localStorage.setItem('userPhone',this.userPhone);
                     Toast("登录成功")
                     this.$router.push('/');
                 },1100);
-
                 }
-            
+
+
             })
-              
+
             .catch(err=>{
                 console.log(err);
             })
         }
-        
+
               this.$refs.pathClear.value =''
               this.$refs.patClear.value =''
       },
@@ -153,7 +154,7 @@ export default {
                 Toast('手机号或验证码不能为空');
                 return;
             }else{
-                
+
 
                 setTimeout(()=>{
                     localStorage.setItem('userPhone',this.userPhone);
@@ -161,7 +162,7 @@ export default {
                     this.$router.push('/');
                 },1100);
             }
-            
+
                 this.$refs.patClear.value =''
                 this.$refs.paClear.value =''
         }
@@ -220,7 +221,7 @@ export default {
                 font-size: 15px;
                 background: white;
                 box-shadow:3px 3px 5px rgb(219, 218, 218);
-            }  
+            }
             .middle4{
                 box-sizing: border-box;
                 position: absolute;
@@ -236,7 +237,7 @@ export default {
                 font-size: 15px;
                 background: white;
                 color:#828282
-            } 
+            }
             .middle8{
                 border: 1px solid #8fddad;
                 color: #10e766;
@@ -266,12 +267,12 @@ export default {
                 width: 100%;
                 border-bottom: 1px solid #e6e6e6;
                 box-sizing: border-box ;
-                margin-top: .08rem; 
+                margin-top: .08rem;
             }
             // .inputs{
             //     outline: none;
             //     border: none;
-            // } 
+            // }
         }
         .middle6{
             margin-top: .1rem;
@@ -303,7 +304,7 @@ export default {
                 color: #f85220
             }
         }
-        
+
     }
 }
 .mot{
@@ -326,12 +327,12 @@ export default {
             line-height: .4rem;
             color: white;
             font-size: 16px;
-            
+
                 outline: none;
                 border: none;
         }
-   
-    } 
+
+    }
     .footer1{
         width: 80%;
         height: .8rem;
@@ -346,19 +347,19 @@ export default {
             width:.9rem ;
             height: 1px;
             background: #666666;
-        }   
+        }
           .footer3{
             width:.9rem ;
             height: 1px;
             background: #666666;
-        } 
+        }
     }
       .footer4{
             width: 80%;
             height: .7rem;
             margin: 0 auto;
             text-align: center;
-            
+
             img{
                 margin-top: .1rem;
                 width: .45rem;

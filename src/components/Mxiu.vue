@@ -4,7 +4,7 @@
  * @Author: mac
  * @Date: 2019-11-06 14:35:10
  * @LastEditors: 马川
- * @LastEditTime: 2019-12-04 15:39:55
+ * @LastEditTime: 2019-12-07 11:01:54
  -->
 <template>
     <div class="box"> 
@@ -78,7 +78,7 @@ export default {
         setTimeout(()=>{
           localStorage.setItem('userPhone',this.userPhone);
             Toast("修改成功")
-          this.$router.push('/');
+          this.$router.push('/Login');
         },1100);
         }
 

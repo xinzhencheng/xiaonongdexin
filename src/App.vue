@@ -46,6 +46,7 @@ html{
 body{
   font-size: 14px;
   height: 100%;
+  background: #f9f9f9;
 }
 ul,li{
   list-style: none;

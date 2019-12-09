@@ -1,8 +1,8 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-11-29 17:46:24
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-06 16:35:03
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-07 10:13:50
  * @Description: 
  -->
 <template>
@@ -33,6 +33,8 @@ export default {
     return {
       
     }
+  },
+  methods:{
   },
 
   components:{

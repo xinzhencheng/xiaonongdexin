@@ -1,8 +1,8 @@
 <!--
  * @Author: 郭涛
  * @Date: 2019-11-30 16:00:04
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-06 17:09:38
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-07 10:44:08
  * @Description: 
  -->
 <template>
@@ -57,6 +57,9 @@ export default {
             // this.reload();
             // window.location.reload();
         },
+                func(zhi){
+          this.isshow=zhi;
+      },
         shoucang(){
             console.log(this.id)
             Axios.get('http://localhost:3000/huiyuanzunxiangs?id='+this.id)

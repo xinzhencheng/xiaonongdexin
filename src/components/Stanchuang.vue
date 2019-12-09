@@ -1,8 +1,8 @@
 <!--
  * @Author: 司娟
  * @Date: 2019-12-02 15:43:42
- * @LastEditors: 郭涛
- * @LastEditTime: 2019-12-06 17:11:33
+ * @LastEditors: 马川
+ * @LastEditTime: 2019-12-07 10:44:35
  * @Description: file content
  -->
 <template>
@@ -58,11 +58,9 @@ export default {
   },
   created(){
      //从后端获取数据     
-     console.log("子组件"+this.id);
      axios.get('http://localhost:3000/huiyuanzunxiangs/'+this.id)
      .then(res=>{ 
          this.goodslists = res.data;
-         console.log(this.goodslists);
         //  this.shop = this.getBooksByType(this.goodslists);
          //内部数据，由于没有渲染在组件里，所以，没有触发组件更新
         //  this.shops = this.getBooksByType(this.goodslists);//内部数据，由于渲染到了页面，所以，触发了组件更新

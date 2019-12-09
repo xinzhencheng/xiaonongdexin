@@ -2,23 +2,22 @@
  * @Author: 司娟
  * @Date: 2019-12-02 15:43:42
  * @LastEditors: 马川
- * @LastEditTime: 2019-12-07 10:20:07
+ * @LastEditTime: 2019-12-07 11:58:13
  * @Description: file content
  -->
 <template>
-  <div class="box" @touchmove="handleTouchmove">
-    <div class="bdiv" v-show="ismit">{{id}}</div>
+  <div class="box">
       <div class="tubiao">
         <i @click="shan" class="el-icon-close"></i>
       </div>
         <div class="content">
-          <img :src="this.goods.img" alt="">
+          <img :src="this.goodslists.img" alt="">
           <div class="jieshao">
-            <span class="biaoti">{{this.goods.biaoti}}</span>
-            <i>￥{{this.goods.jiaqian}}</i>
+            <span class="biaoti">{{this.goodslists.biaoti}}</span>
+            <i>￥{{this.goodslists.jiaqian}}</i>
             <p>
-              <span>库存：{{this.goods.kucun}}件</span>
-              <em>销量：{{this.goods.xiaoliang}}件</em>
+              <span>库存：{{this.goodslists.kucun}}件</span>
+              <em>销量：{{this.goodslists.xiaoliang}}件</em>
             </p>
           </div>
         </div>
@@ -45,41 +44,40 @@
 <script>
 import axios from 'axios';
 import { Toast } from 'mint-ui';
-
 export default {
-  name: 'Stanchuangq',
-  // inject:["reload"],
+  name: 'Back',
+  inject:["reload"],
   props:['id'],
   data () {
     return { 
-       goods:{},
+       goodslists:{},
        counter:1,
-       isYellow:true  
-    }
-  },
-  computed:{
-    ismit(){
-       console.log("子组件"+this.id);
-     axios.get('http://localhost:3000/rementuijies/'+this.id)
-     .then(res=>{ 
-         this.goods = res.data;
-         console.log(this.goods+"------------");
-     })
-     .catch(err=>{
-         console.log(err);
-     });
+       isYellow:true,
+         
     }
   },
   created(){
      //从后端获取数据     
-    
-  }, 
+     console.log("子组件"+this.id);
+     axios.get('http://localhost:3000/rementuijies/'+this.id)
+     .then(res=>{ 
+         this.goodslists = res.data;
+         console.log(this.goodslists);
+        //  this.shop = this.getBooksByType(this.goodslists);
+         //内部数据，由于没有渲染在组件里，所以，没有触发组件更新
+        //  this.shops = this.getBooksByType(this.goodslists);//内部数据，由于渲染到了页面，所以，触发了组件更新
+     })
+     .catch(err=>{
+         console.log(err);
+     });
+  },
+  
   methods:{
         reduceCount:function(){
              //this是vue对象
             if(this.counter<=1){
               this.isYellow=true;
-                return;
+              return;
             }
           this.counter--;            
         },
@@ -88,29 +86,26 @@ export default {
             this.counter++;
         },
         shan(){
-          // this.reload();
+          this.reload();
           this.$emit('change',false);//$emit 能够触发事件  
         },
-         handleTouchmove (e) {
-            e.preventDefault()
-        },
-         tijiano(){
+        tijiano(){
              axios({
                     method:"post",
                     url:"http://localhost:3000/foods",
                     data:{
                         id:this.id,
                         shop: "小农的心自营店",
-                        img:this.goods.img,
-                        name:this.goods.biaoti,
-                        price:this.goods.jiaqian,
+                        img:this.goodslists.img,
+                        name:this.goodslists.biaoti,
+                        price:this.goodslists.jiaqian,
                         count:this.counter,
-                        weight:this.goods.xiaoliang
+                        weight:this.goodslists.xiaoliang
 
                     }
                 })
                 .then((res)=>{
-                    console.log(res.data)
+                    // console.log(res.data)
                     console.log("添加成功")
                      Toast("添加成功")
                     
@@ -126,10 +121,6 @@ export default {
     width:94%;
     // height: 2rem;
     padding:0 3%;
-    // max-height:4.8rem;
-    min-height: 3.7rem;
-    background: #ffffff;
-     border-radius: .1rem .1rem 0 0;
     .tubiao{
       height: .1rem;
       margin-top: .1rem;
@@ -227,7 +218,7 @@ export default {
     }
   }
   .true{
-      height: .48rem;
+      // height: .48rem;
       input{
       display: block;
       height: .38rem;

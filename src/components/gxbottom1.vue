@@ -18,7 +18,7 @@
         <input type="button" value="立即购买" class="right1" @click="goumai()">
         <input type="button" value="加入购物车" class="right2" @click="goumai()">
         <mt-popup v-if="isshow" v-model="popupVisible" position="bottom" class="show">
-            <Stanchuang :id="id"></Stanchuang>
+            <stanchuangqq :id="id" @change="func"></stanchuangqq>
         </mt-popup>
     </div>
 </template>
@@ -28,7 +28,7 @@ import Vue from 'vue';
 // import { Toast } from 'mint-ui';
 Vue.component(Popup.name, Popup);
 import { Popup } from 'mint-ui';
-import Stanchuang from './Stanchuang';
+import stanchuangqq from './stanchuangqq';
 import Axios from 'axios';
 export default {
     props:["id"],
@@ -36,18 +36,17 @@ export default {
     return {
           popupVisible:false,
         goodslists:[],
-        // tiao:"",
         isshow:false,
         id:"" 
     }
   },
  
   methods:{
-        goumai(id){
+        goumai(){
+            console.log(this.id+'---------mac')
            this.popupVisible=true; 
             this.isshow=true;
-            this.id=id;
-            console.log(this.id);
+            console.log(this.id+'mdadada------------+++');
             // this.reload();
             // window.location.reload();
         },
@@ -90,11 +89,14 @@ export default {
             .catch(err=>{
                 console.log(err);
             });
-        }
+        },
+        func(zhi){
+          this.isshow=zhi;
+      }
       
   },
   components:{
-     Stanchuang
+     stanchuangqq
   }
 }
 </script>

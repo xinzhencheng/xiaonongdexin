@@ -1,8 +1,8 @@
 <!--
  * @Author: 司娟
  * @Date: 2019-11-25 21:20:23
- * @LastEditors: 司娟
- * @LastEditTime: 2019-12-02 11:05:41
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-12-07 14:08:44
  * @Description: file content
  -->
 <template>
@@ -27,7 +27,7 @@ export default {
   },
   methods:{
       back(){
-          this.$router.go(-1);
+          this.$router.push({path:"/shoppingCar"});
       }
   }
 }
@@ -44,7 +44,6 @@ export default {
   z-index:1;
 }
 .kong{
-  height:.19rem;
   background: #fcfcfc;
 }
 .title{

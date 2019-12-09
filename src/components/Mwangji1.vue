@@ -7,7 +7,7 @@
  * @LastEditTime: 2019-12-04 15:38:06
  -->
 <template>
-    <div class="box"> 
+    <div class="box">
         <div class="box1">
             <div class="middle">
                 <div class="middle1">
@@ -21,7 +21,7 @@
                         <input type="password" ref="pathClear" v-model="password" class="inpute" placeholder="请输入原来的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入原来的密码'">
                         <!-- <el-input class="inpute inputs" v-model="password" placeholder="请输入密码"  onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'" clearable show-password></el-input> -->
                     </div>
-                    
+
                     <div class="middle5 middle6">
                         <p>新密码</p>
                         <input type="password" ref="paClear" v-model="newpassword" class="inpute" placeholder="请输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入新密码'">
@@ -35,7 +35,7 @@
                 <button class="mouti"  @touchstart="loginCheck">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交</button>
             </div>
         </div>
-    </div>  
+    </div>
 </template>
 
 <script>
@@ -59,24 +59,24 @@ export default {
           if(this.userPhone =="" || this.password =="" || this.newpassword ==""){
               Toast('亲！你必须的在相应的文本框中输入对应的内容');
           }else{
-            let id=localStorage.getItem("id")
-            console.log(id)
+            // let id=localStorage.getItem("id")
+            let id=this.$store.state.maca;
+            console.log(id+'//////////')
              axios({
                     method:"patch",
-                    url:"http://localhost:3000/login/"+id,  
+                    url:"http://localhost:3000/login/"+id,
                     data:{
-                        userpass:this.password,
-                       
+                        userpass:this.newpassword,
                     }
                 })
                 .then((data)=>{
-                    // console.log(data); 
+                    // console.log(data);
                     console.log("修改成功");
-                    // console.log(data); 
+                    // console.log(data);
                     // console.log("修改成功");
                     // this.$router.push({
                         path: '/Login'
-                        
+
                     // })
                 })
 
@@ -85,7 +85,7 @@ export default {
                 this.$router.push('/');
             },1100);
         }
-        
+
               this.$refs.pathClear.value =''
               this.$refs.patClear.value =''
               this.$refs.paClear.value =''
@@ -139,16 +139,16 @@ export default {
                 width: 100%;
                 border-bottom: 1px solid #e6e6e6;
                 box-sizing: border-box ;
-                margin-top: .08rem; 
+                margin-top: .08rem;
             }
             // .inputs{
             //     outline: none;
             //     border: none;
-            // } 
+            // }
         }
         .middle6{
             margin-top: .1rem
-        }        
+        }
     }
 }
 .mot{
@@ -171,11 +171,11 @@ export default {
             line-height: .4rem;
             color: white;
             font-size: 16px;
-            
+
                 outline: none;
                 border: none;
         }
-   
-    } 
+
+    }
 }
 </style>

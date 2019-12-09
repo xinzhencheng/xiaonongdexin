@@ -3,7 +3,7 @@
  * @Date: 2019-11-26 10:16:18
  * @LastEditors: 郭涛
  * @LastEditTime: 2019-12-06 17:16:34
- * @Description: 
+ * @Description:
  -->
 <template>
 <div>
@@ -11,8 +11,8 @@
     <div class="sea">
             <p>购物车</p>
             <span class="span" v-text="Text" @click="chang" >编辑</span>
-        </div>  
-        
+        </div>
+
     </div>
     <div class="waibox">
         <ul>
@@ -20,7 +20,7 @@
                 <div class="title">
                     <div class="check">
                         <input type="checkbox" v-model="food.isChecked" @click="selectGoods(food)">
-                    </div> 
+                    </div>
                     <span>{{food.shop}}></span>
                 </div>
                 <div class="food">
@@ -41,15 +41,15 @@
                         </div>
                     </div>
                 </div>
-                
+
             </li>
         </ul>
         <div class="ADD">
             <div class="d">
                 <div class="check">
                     <input type="checkbox" id="allCheckBox" v-model="allcheck" @click="allCheck">
-                </div> 
-                <span>全选</span> 
+                </div>
+                <span>全选</span>
             </div>
             <div class="over" v-show="isShow">
                 <div class="a">
@@ -120,12 +120,12 @@ export default {
       },
         allCheck(flag){
         //   console.log(this.allCheck);
- 
+
           console.log(event.target.checked);
           this.foods.forEach(item=>{
               item.isChecked = event.target.checked;
-            
-          }); 
+
+          });
           event.target.checked? this.checkNum = this.foods.length : this.checkNum = 0;
 
         //   console.log(this.checkNum);
@@ -145,7 +145,7 @@ export default {
                 // console.log(this.checkNum);
             }else{
                 this.$set(food,"checked",true);
-                
+
             }
         },
         toDo(){
@@ -158,7 +158,7 @@ export default {
                  this.$store.commit("zou",[this.src,this.zongjia,this.checkNum])
                     setTimeout(()=>{
                     this.$router.push({path:'/Squerendingdan'});//跳转结算页面
-                    },1500);     
+                    },1500);
              }else{
                  Toast('请选择要结算的商品');
              }
@@ -190,7 +190,7 @@ export default {
                                             console.log(err);
                                         })
                                     })
-                                    
+
                                     }
                                 }
                     }
@@ -198,14 +198,14 @@ export default {
             }else{
                 Toast('请选择要删除的商品');
             }
-           
+
         }
     }
   }
 
 </script>
 
-<style lang="scss" scoped="" type="text/css"> 
+<style lang="scss" scoped="" type="text/css">
 .Waibox{
     width: 100%;
     background: #ffffff;
@@ -231,6 +231,7 @@ p{
 .waibox{
     width: 100%;
     margin-top: .55rem;
+    padding-bottom: 1.2rem;
 }
 ul li{
     width: 93%;
@@ -244,7 +245,7 @@ ul li{
     height: .4rem;
     display: flex;
     align-items: center;
-   
+
 }
 input[type="checkbox"]{
     display: inline-block;
@@ -281,7 +282,7 @@ input[type="checkbox"]:checked{ // 复选框选中的样式 使用带有对号�
         margin: 0 auto;
         p{
             font-size: .16rem;
-            margin-bottom:10px; 
+            margin-bottom:10px;
         }
         span{
             color: rgb(159, 159, 159);
@@ -351,7 +352,7 @@ input[type="checkbox"]:checked{ // 复选框选中的样式 使用带有对号�
     margin-right:10px;
     width:1.1rem;
     border:1px solid red;
-    height: .4rem; 
+    height: .4rem;
     text-align: center;
     line-height: .4rem;
     border-radius: 22px;

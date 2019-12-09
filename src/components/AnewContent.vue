@@ -3,7 +3,7 @@
  * @Date: 2019-11-28 19:53:51
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2019-12-06 16:30:07
- * @Description: 
+ * @Description:
  -->
 <template>
 <div class="waibox">
@@ -16,8 +16,8 @@
         </div>
         <div class="content two">
             <span></span>
-            <el-radio v-model="radio" label="1">男</el-radio>
-            <el-radio v-model="radio" label="2">女</el-radio>
+            <el-radio v-model="radio" label="男">男</el-radio>
+            <el-radio v-model="radio" label="女">女</el-radio>
         </div>
         <div class="content one">
             <span>联系电话</span>
@@ -67,7 +67,7 @@ export default {
     name:"AnewaddressHea",
     data (){
         return {
-            radio: '1',
+            radio: '男',
             value: true,
             city:'请选择',
             addInp :false,
@@ -85,7 +85,7 @@ export default {
     toAddress(){
         this.mask = !this.mask;
         this.addInp = !this.addInp ;
-    },  
+    },
     // 省市区三级联动
     selected(data){
         this.mask =false;
@@ -93,15 +93,15 @@ export default {
         this.city = data.province.value + ' ' + data.city.value +' ' + data.area.value
         },
     ADD(){
-        
+
 			 fetch('http://localhost:3000/addresss',{
-               
+
                 method:"post",
                  headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                       },
            body:'people'+'='+this.people+'&'+'phone'+'='+this.phone+'&'+'sex'+'='+this.radio+'&'+'Area'+'='+this.city+'&'+'xiangxidizhi'+'='+this.xiangxidizhi
-                
+
             })
             .then(res=>{
                 return res.json();
@@ -109,7 +109,8 @@ export default {
             .then(data=>{
 				 console.log(data)
                 if(data!=null){
-                    console.log("成功")
+                    console.log("成功");
+					 this.$router.push({path:"/xinzengaddress"});
                 }else{
                 alert("添加失败");
             }
@@ -123,7 +124,7 @@ export default {
 .waibox{
     width: 100%;
     padding-top:.4rem;
-    
+
 .contents{
         width: 89%;
         height: 1.4rem;

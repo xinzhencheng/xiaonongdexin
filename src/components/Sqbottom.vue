@@ -2,14 +2,14 @@
  * @Author: 司娟
  * @Date: 2019-11-26 10:25:43
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2019-12-05 16:20:08
+ * @LastEditTime: 2019-12-06 17:59:08
  * @Description: file content
  -->
 <template>
   <div class="box">
-       <span class="heji">共 {{xiaoji}} 商品  合计金额：</span>
+       <span class="heji"> 合计金额：</span>
        <span class="money">￥{{zong}}</span>
-       <em>提交订单</em>
+       <em @click="sub">提交订单</em>
   </div>
 </template>
 
@@ -23,7 +23,10 @@ export default {
     }
   },
   methods:{
-      
+
+      sub(){
+        this.$router.push({path:"/Paypage"});
+      }
   }
 }
 </script>
@@ -43,7 +46,7 @@ export default {
   .heji{
       font-size: .15rem;
       color: #666666;
-      margin-left: .7rem;
+      margin-left: 1.4rem;
   }
   .money{
     color: #fc8600;
